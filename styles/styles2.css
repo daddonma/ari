@@ -1,0 +1,183 @@
+:root {
+    
+    --background_color: #eff0f1;
+    --background_color_body:  #fff;
+    --footer_height: 3.5rem;
+    --small_font_size: .9rem;
+
+    --border_radius: 5px;
+
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    font-size: 100%;
+    padding: 0;
+   	background-color: var(--background_color);
+}
+
+body {   
+    font-size: 1em;
+    text-align: left;
+
+    min-height: 100vh; /* footer immer unten */
+    padding: 0 0 var(--footer_height) 0; /* Platz für footer */
+    position: relative; /* für position:absolute des footers */
+    
+    background-color: var(--background_color_body);
+    box-shadow: 0 1px 9px rgba(0, 0, 0, 0.4);
+    
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; /* padding wird nicht zur Höhe addiert */
+}
+
+@media (min-width: 1025px) {
+    body {
+
+    	width: 90%;
+        margin: 0 auto; /* zentrieren */
+       
+    }
+}
+
+#header nav ul {
+    list-style: none;
+    padding: 0;
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#header nav ul li {
+    display: table-cell;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.7em;
+    border-left: 1px solid #bbb;
+}
+
+#header nav ul li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+#header nav ul li a:hover {
+    color: black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+
+@media (max-width: 800px) {
+    #header nav {
+        /* "Button": */
+        color: #fff;
+        width: 3rem;
+        height: 2rem;
+        
+        top: .5rem;
+        right: .5rem;
+        left: auto; /* ursprüngl. Position zurücksetzen */
+        
+        border-style: none;
+        border-radius: 4px;
+        background-color: orange;
+    }
+    
+    #header nav::before {
+        /* Menü-Icon
+           (alternativ wäre auch background-image möglich): */
+        content: "\2261";
+        font-size: 2rem;
+        text-align: center;
+        line-height: .8em;
+        display: block;
+        cursor: pointer;
+    }
+    
+    #header nav ul {
+        display: none; /* Menü ausblenden */
+        width: auto;
+        position: absolute;
+        right: 0;
+        top: 100%; /* unterer Rand des Buttons */
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: var(--border_radius);
+    }
+    
+    #header nav:hover ul {
+        display: block; /* Menü einblenden, display:table zurücksetzen */
+    }
+    
+    #header nav ul li {
+        display: block; /* display:table-cell zurücksetzen */
+        text-align: left;
+        line-height: auto;
+        
+        border-color: #888;
+        border-width: 1px;
+        border-style: solid none none none;
+    }
+    
+    #header nav ul li a {
+        padding: .3rem 1rem;
+    }
+    
+    #header nav ul li a:hover {
+        color: #fff;
+       background-color: orange;
+    }
+    
+    #header nav ul li:first-child {
+        border-top-style: none; /* oberstes Listenelement hat keine Kontur */
+    }
+    
+    #header nav ul li:first-child a {
+        border-top-left-radius: var(--border_radius);
+        border-top-right-radius: var(--border_radius);
+    }
+    
+    #header nav ul li:last-child a {
+        border-bottom-left-radius: var(--border_radius);
+        border-bottom-right-radius: var(--border_radius);
+    }
+}
+
+/* Footer: */
+#footer {
+    color: #fff;
+    font-size: var(--small_font_size);
+    padding: 1rem;
+    
+    /* footer immer unten: */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    background-color: orange;
+}
+
+#footer nav ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+#footer nav ul li {
+    display: inline; /* nebeneinander */
+}
+
+#footer nav ul li::after {
+    content: "|";
+    margin: 0 0.3rem;
+}
+
+#footer nav ul li:last-child::after {
+    content: none;
+    margin: 0;
+}
