@@ -1,3 +1,13 @@
+@font-face {
+    font-family:"Coaster Quake";
+    src: url(../fonts/coaster_quake-webfont.ttf);
+}
+
+@font-face{
+    font-family:"Mango Drink";
+    src: url(../fonts/mango_drink.ttf);
+}
+
 :root {
     
     --background_color: #eff0f1;
@@ -6,6 +16,17 @@
     --small_font_size: .9rem;
 
     --border_radius: 5px;
+
+    --header_height: 20rem;
+
+    --title_heading_font_size: 10rem;
+
+    --menu_color_1:  rgba(226,172,15,1);
+    --menu_color_2: rgba(222,81,0,1);
+    --menu_color_3: rgba(128,43,0,1);
+
+    --nav_bg_color_2: #8bbef1;
+    --nav_bg_color_1: #e9eaeb;
 
 }
 
@@ -21,6 +42,7 @@ html {
 
 body {   
     font-size: 1em;
+    font-family: "Comic Sans MS", sans-serif;
     text-align: left;
 
     min-height: 100vh; /* footer immer unten */
@@ -30,6 +52,10 @@ body {
     background-color: var(--background_color_body);
     box-shadow: 0 1px 9px rgba(0, 0, 0, 0.4);
     
+
+    min-width: 320px;
+    max-width: 1400px;
+
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box; /* padding wird nicht zur Höhe addiert */
@@ -42,6 +68,92 @@ body {
         margin: 0 auto; /* zentrieren */
        
     }
+}
+
+#header {
+    height: var(--header_height);
+    position: relative; /* wegen position:absolute von nav und search */
+    background: url(../img/header_mountain.jpg) no-repeat left center;
+    background-size: cover;
+}
+
+@media (max-width: 750px) {
+    #header {
+        height: calc(var(--header_height) / 4 * 3);
+    }
+}
+
+@media (max-width: 600px) {
+    #header {
+        height: calc(var(--header_height) / 2);
+        background-position: left top;
+    }
+}
+
+#header #search {
+    /* Zentrierung absolut positionierter Elemente:
+       Werte für left und right gleichzeitig auf 0 setzen */
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.7rem;
+    margin: 0 auto;
+    width: 40%;
+}
+
+#header #search input[type="search"] {
+    width: 100%; /* Suchfeld hat gesamte Breite des 40% breiten Containers */
+}
+
+#header a#title {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+#header a#title h1 {
+    font-family: "Coaster Quake";
+    font-size: var(--title_heading_font_size);
+    text-align: center;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+    line-height: 2em;
+    white-space: nowrap; /* kein Zeilenumbruch */
+}
+
+@media (max-width: 750px) {
+    #header a#title h1 {
+        font-size: calc(var(--title_heading_font_size) / 1.55);
+    }
+}
+
+@media (max-width: 600px) {
+    #header a#title h1 {
+        font-size: calc(var(--title_heading_font_size) / 2);
+        line-height: 1.7em;
+    }
+}
+
+#header nav {
+    width: 100%; /* wegen position:absolute */
+    padding: 0;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* steht VOR Suchfeld (wichtig für Dropdown-Menü für Mobilgeräte) */
+    
+    border-color: #bbb;
+    border-width: 1px;
+    border-style: solid none;
+    
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  
+    background-color: var(--nav_bg_color_2);
+   
+}
+
+#header nav ul li:hover{
+    background-color: grey;
 }
 
 #header nav ul {
@@ -85,7 +197,7 @@ body {
         
         border-style: none;
         border-radius: 4px;
-        background-color: orange;
+        background-color: brown;
     }
     
     #header nav::before {
@@ -159,7 +271,7 @@ body {
     left: 0;
     right: 0;
     
-    background-color: orange;
+    background-color: var(--nav_bg_color_2);
 }
 
 #footer nav ul {

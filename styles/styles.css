@@ -58,9 +58,7 @@ body {
     font-family: var(--base_fonts);
     font-size: 1em;
     text-align: left;
-    
-    min-width: 320px;
-    max-width: 1400px;
+  
     min-height: 100vh; /* footer immer unten */
     padding: 0 0 var(--footer_height) 0; /* Platz für footer */
     position: relative; /* für position:absolute des footers */
