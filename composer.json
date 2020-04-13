@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-0": {
+            "Controllers": "./src/",
+            "Entities": "./src/",
+            "Repositories": "./src/"
+        }
+    },
+    "require": {
+        "php": ">=7.3",
+        "doctrine/orm": "2.6.3"
+    }
+}
