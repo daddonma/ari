@@ -6,7 +6,7 @@ $connectionOptions = [
     'host' => 'localhost',
     'user' => 'root',
     'password' => '',
-    'dbname' => '',
+    'dbname' => 'ari',
 ];
 
 // Application/Doctrine configuration

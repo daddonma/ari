@@ -23,9 +23,9 @@ class ComposerStaticInit7cda7449b5d5f06700118ce92869ae63
         array (
             'Psr\\Container\\' => 14,
         ),
-        'I' => 
+        'G' => 
         array (
-            'Installers\\' => 11,
+            'Gedmo\\' => 6,
         ),
         'D' => 
         array (
@@ -39,6 +39,10 @@ class ComposerStaticInit7cda7449b5d5f06700118ce92869ae63
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
+        ),
+        'B' => 
+        array (
+            'Behat\\Transliterator\\' => 21,
         ),
     );
 
@@ -63,9 +67,9 @@ class ComposerStaticInit7cda7449b5d5f06700118ce92869ae63
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
-        'Installers\\' => 
+        'Gedmo\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Installers',
+            0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/lib/Gedmo',
         ),
         'Doctrine\\Persistence\\' => 
         array (
@@ -110,9 +114,27 @@ class ComposerStaticInit7cda7449b5d5f06700118ce92869ae63
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
             3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
+        'Behat\\Transliterator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/transliterator/src/Behat/Transliterator',
+        ),
     );
 
     public static $prefixesPsr0 = array (
+        'W' => 
+        array (
+            'Webmasters' => 
+            array (
+                0 => __DIR__ . '/..' . '/webmasters/doctrine-extensions/lib',
+            ),
+        ),
+        'V' => 
+        array (
+            'Validators' => 
+            array (
+                0 => __DIR__ . '/../..' . '/src',
+            ),
+        ),
         'R' => 
         array (
             'Repositories' => 
