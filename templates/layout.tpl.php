@@ -11,7 +11,7 @@
         <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
 
         <!-- JavaScript einbinden-->
-        <script src="js/teaserbox.js" defer="defer"></script>
+        <script src="<?= $basePath?>js/teaserbox.js" defer="defer"></script>
     </head>
 
     <body>

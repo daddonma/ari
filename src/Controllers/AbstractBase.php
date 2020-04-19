@@ -22,6 +22,7 @@ abstract class AbstractBase
         $this->addContext('action', $action);
 
         $methodName = $action . 'Action';
+
         $this->setTemplate($methodName);
 
         if (method_exists($this, $methodName)) {
@@ -122,7 +123,7 @@ abstract class AbstractBase
 
         $message = $this->getMessage(); // Get flash message
         $template = $this->getTemplate();
-
+        $basePath = str_replace('\\', '/', $this->basePath);
         require_once $this->basePath . '/templates/layout.tpl.php';
     }
 }
