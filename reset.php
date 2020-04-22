@@ -4,6 +4,8 @@ require_once 'inc/bootstrap.inc.php';
 
 use Entities\Region;
 use Entities\Kategorie;
+use Entities\Benutzer;
+use Entities\Anrede;
 
 $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
 
@@ -15,9 +17,11 @@ try {
     $schemaTool->updateSchema($metadata);
 
     //Beispiel Regionen anlegen
-    $regionenList = array(  ['name' => 'müll'],
-                        ['name' => 'Südhessen'],
-                     ['name' => 'test']);
+    $regionenList = array(  
+                            ['name' => 'Südtirol'],
+                            ['name' => 'Kapverden'],
+                            ['name' => 'Mongolei']
+                        );
 
     foreach($regionenList AS $key => $regionData) {
         $regionObj = new Region($regionData);
@@ -28,9 +32,11 @@ try {
     }
 
      //Beispiel Kategorien anlegen
-    $kategorienList = array(  ['name' => 'Wanderurlaub'],
-                        ['name' => 'Zelten'],
-                     ['name' => 'Action']);
+    $kategorienList = array(  
+                            ['name' => 'Wanderurlaub'],
+                            ['name' => 'Zelten'],
+                            ['name' => 'Action']
+                        );
 
      foreach($kategorienList AS $key => $kategorieData) {
         $kategorieObj = new Kategorie($kategorieData);
@@ -38,6 +44,35 @@ try {
         $exists = !empty($em->getRepository('Entities\Kategorie')->findByName($kategorieObj->getName()));
         
         if(!$exists) $em->persist($kategorieObj);
+    }
+
+    //Beispiel Benutzer anlegen
+    $benutzerList = array(
+                            ['benutzername' => 'testUser', 'passwort' => sha1("test")],
+                            ['benutzername' => 'gastUser', 'passwort' => sha1("gast")]
+                        );
+
+    foreach($benutzerList AS $key => $benutzerData) {
+        $benutzerObj = new Benutzer($benutzerData);
+
+        $exists = !empty($em->getRepository('Entities\Benutzer')->findByBenutzername($benutzerObj->getBenutzername()));
+
+        if(!$exists) $em->persist($benutzerObj);
+    }
+
+    //Anredenanlegen
+    $anredenList = array(
+                            ['bezeichnung' => 'Herr'],
+                            ['bezeichnung' => 'Frau'],
+                            ['bezeichnung' => 'Firma']
+                        );
+
+    foreach($anredenList AS $key => $anredeData) {
+        $anredeObj = new Anrede($anredeData);
+
+        $exists = !empty($em->getRepository('Entities\Anrede')->findByBezeichnung($anredeObj->getBezeichnung()));
+
+        if(!$exists) $em->persist($anredeObj);
     }
 
     $em->flush();
