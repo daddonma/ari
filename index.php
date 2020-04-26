@@ -14,13 +14,13 @@ $basePath = dirname(__FILE__);
 $controller = $_GET['controller'] ?? 'index';
 $action = $_GET['action'] ?? 'index';
 
-$controllerNamespace = 'Controllers\\';
+$controllerNamespace = 'Controllers\\Frontend\\';
 $controllerName = $controllerNamespace . ucfirst($controller) . 'Controller';
 
 if (class_exists($controllerName)) {
     $requestController = new $controllerName($basePath, $em);
     $requestController->run($action);
 } else {
-    $requestController = new Controllers\IndexController($basePath, $em);
+    $requestController = new Controllers\Frontend\IndexController($basePath, $em);
     $requestController->render404();
 }

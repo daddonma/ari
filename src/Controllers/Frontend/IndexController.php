@@ -1,6 +1,8 @@
 <?php
 
-namespace Controllers;
+namespace Controllers\Frontend;
+
+use Controllers\AbstractBase;
 
 class IndexController extends AbstractBase
 {
