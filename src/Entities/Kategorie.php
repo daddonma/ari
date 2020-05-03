@@ -35,6 +35,7 @@ class Kategorie extends AbstractEntity {
 	}
 
 	public function __toString() {
+		return "kategorie";
 		return $this->getName();
 	}
 

@@ -11,10 +11,28 @@ abstract class AbstractBase
     protected $em;
     protected $template;
 
+    protected $cssFiles = array();
+    protected $jsFiles = array();
+
     public function __construct($basePath, EntityManager $em)
     {
         $this->basePath = $basePath;
         $this->em = $em;
+
+        if(strpos(get_class($this), 'Backend')) {
+            $cssDir = CSS_ADMIN_URL;
+            $jsDir = JS_ADMIN_URL;
+        } else {
+             $cssDir = CSS_URL;
+            $jsDir = JS_URL;
+        }
+        
+        $this->addCss($cssDir."\\stylesheet.css");
+        $this->addCss($cssDir."\\". lcfirst($this->getControllerShortName()) .".css");
+        $this->addCss(CSS_URL."\\flash_messages.css");
+        $this->addCss(CSS_URL."\\icons.css");
+
+        $this->addJs($jsDir."\script.js");
     }
 
     public function run($action)
@@ -76,6 +94,22 @@ abstract class AbstractBase
         $_SESSION['message'] = $message; // Set flash message
     }
 
+    protected function addCss($cssFile) {
+         $this->cssFiles[] = $cssFile;
+    }
+
+    protected function getCssFiles() {
+        return $this->cssFiles;
+    }
+
+    protected function addJs($jsFile) {
+        $this->jsFiles[] = $jsFile;
+    }
+
+    protected function getJsFiles() {
+        return $this->jsFiles;
+    }
+
     protected function getMessage()
     {
         $message = false;
@@ -86,6 +120,56 @@ abstract class AbstractBase
         }
 
         return $message;
+    }
+
+    protected function setSuccessMessage($successMessage)
+    {
+        $_SESSION['successMessage'] = $successMessage; // Set flash message
+    }
+
+    protected function getSuccessMessage() {
+
+        $successMessage = false;
+        if (isset($_SESSION['successMessage'])) {
+            // Read and delete flash message from session
+            $successMessage = $_SESSION['successMessage'];
+            unset($_SESSION['successMessage']);
+        }
+
+        return $successMessage;
+    }   
+
+    protected function setErrorMessage($errorMessageMessage, array $errorArray = array())
+    {
+        $_SESSION['errorMessage'] = $errorMessageMessage; // Set flash message
+
+        if(!empty($errorArray)) {
+            $_SESSION['errorArray'] = $errorArray;
+        }
+    }
+
+    protected function getErrorMessage() {
+
+        $errorMessage = false;
+        if (isset($_SESSION['errorMessage'])) {
+            // Read and delete flash message from session
+            $errorMessage = $_SESSION['errorMessage'];
+            unset($_SESSION['errorMessage']);
+        }
+
+        return $errorMessage;
+    }  
+
+    protected function getErrorArray() {
+        $errorArray = array();
+
+        if (isset($_SESSION['errorArray'])) {
+            $errorArray = $_SESSION['errorArray'];
+            unset($_SESSION['errorArray']);
+        }
+
+        return $errorArray;
+
     }
 
     protected function recall($action, $controller)
@@ -117,13 +201,31 @@ abstract class AbstractBase
         exit;
     }
 
+    protected function getCurrentUrl() {
+      $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+      return $url;
+    }
+
     protected function render()
     {
         extract($this->context);
 
+
+        //Flash Messages
         $message = $this->getMessage(); // Get flash message
+        $successMessage = $this->getSuccessMessage();
+        $errorMessage = $this->getErrorMessage();
+        $errorArray = $this->getErrorArray();
+
+        $cssFiles = $this->getCssFiles();
+   
+        $jsFiles = $this->getJsFiles();
+
         $template = $this->getTemplate();
         $basePath = str_replace('\\', '/', $this->basePath);
+
+        $currentUrl = $this->getCurrentUrl();
+      
         require_once $this->basePath . '/templates/layout.tpl.php';
     }
 }

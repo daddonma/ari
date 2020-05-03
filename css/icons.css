@@ -1,0 +1,12 @@
+.icon {
+	margin-right: .1em;
+}
+
+.icon.pencil::before {
+	content: url(../images/icons/pencil.png);
+	
+}
+
+.icon.trash::before {
+	content: url(../images/icons/trash.png);
+}

@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-ul {
+ul#sidebar-right {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -13,19 +13,23 @@ ul {
   overflow: auto;
 }
 
-li a {
+ul#sidebar-right li a {
   display: block;
   color: #000;
   padding: 8px 16px;
   text-decoration: none;
 }
 
-li a.active {
+ul#sidebar-right li a.active {
   background-color: orange;
   color: white;
 }
 
-li a:hover:not(.active) {
+ul#sidebar-right li a:hover:not(.active) {
   background-color: #555;
   color: white;
+}
+
+.message, .errors {
+    color: #ff0000;
 }

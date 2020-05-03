@@ -8,6 +8,7 @@ class IndexController extends AbstractBase
 {
     public function indexAction()
     {
-        // Fill me
+
+        $this->addJs(JS_URL."\\teaserbox.js");
     }
 }

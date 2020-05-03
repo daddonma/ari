@@ -1,10 +1,9 @@
 <?php
 
 //todo anpassen
-
+require_once '../inc/constants.inc.php';
 require_once '../inc/functions.inc.php';
 require_once '../inc/helper.inc.php';
-
 require_once '../inc/bootstrap.inc.php';
 
 // Session needed for flash messages

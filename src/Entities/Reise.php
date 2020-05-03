@@ -3,6 +3,7 @@ namespace Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use \Doctrine\Common\Collections\ArrayCollection;
+use Webmasters\Doctrine\ORM\Util;
 
 /**
  *@ORM\Entity
@@ -33,7 +34,7 @@ class Reise extends AbstractEntity {
 	protected $ende;
 
 	/**
-	* @ORM\Column(type="decimal")
+	* @ORM\Column(type="decimal", scale=2)
 	*/
 	protected $preis;
 
@@ -167,7 +168,7 @@ class Reise extends AbstractEntity {
 		return $this->buchungen;
 	}
 
-	public function addBuhung(Buchung $buchung) {
+	public function addBuchung(Buchung $buchung) {
 		$this->buchungen->add($buchung);
 	}
 }

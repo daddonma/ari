@@ -8,10 +8,15 @@
         <title>ARI</title>
 
         <!-- CSS einbinden -->
-        <link type="text/css" rel="stylesheet" href="css/stylesheet.css" />
+        <?php foreach($cssFiles AS $cssFile): ?>
+        <link type="text/css" rel="stylesheet" href="<?= $cssFile?>" />
+        <?php endforeach; ?>
+        
+        <?php foreach($jsFiles AS $jsFile): ?>
+        <script src="<?= $jsFile ?>" defer="defer"></script>    
+        
+        <?php endforeach; ?>
 
-        <!-- JavaScript einbinden-->
-        <script src="js/teaserbox.js" defer="defer"></script>
     </head>
 
     <body>
@@ -23,9 +28,9 @@
             <?php require 'general/flash_message.tpl.php'; ?>
             <?php require 'general/errors.tpl.php'; ?>
 
-            <section>
-                <?php require $template; ?>
-            </section>
+           <section>
+              <?php require $template; ?>
+          </section>
 
         </main>
     </body>

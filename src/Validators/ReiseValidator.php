@@ -24,7 +24,7 @@ class ReiseValidator extends EntityValidator  {
 	}
 
 	public function validateEnde($ende) {
-		if(empty($beginn)) {
+		if(empty($ende)) {
 			$this->addError("Das Ende darf nicht leer sein");
 		}
 	}

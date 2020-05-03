@@ -8,6 +8,7 @@ class IndexController extends AbstractBase
 {
     public function indexAction()
     {
-        // Fill me
+    	//auf die Indexseite der Reise weiterleiten
+        $this->redirect('index', 'reise');
     }
 }
