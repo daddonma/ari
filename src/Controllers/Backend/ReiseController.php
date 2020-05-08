@@ -79,6 +79,9 @@ class ReiseController extends \Controllers\AbstractBase {
 				$uploadHelper->moveFile($files['detailbild']['tmp_name'], $detailbildDir, $reise->getDetailbild());
 
 				$this->setSuccessMessage('Reise wurde erfolgreich angelegt');
+
+				//auf die Indexseite der Reise weiterleiten
+        		$this->redirect('index', 'reise');
 			} else {
 				$this->setErrorMessage("Fehler beim Anlegen der Reise", $validator->getErrors());
 			}
@@ -217,7 +220,9 @@ class ReiseController extends \Controllers\AbstractBase {
 			$uploadHelper::deleteFile($detailbildDir);
 
             $this->setMessage("Reise wurde erfolgreich gelöscht");
-            $this->redirect();
+            
+            //auf die Indexseite der Reise weiterleiten
+        	$this->redirect('index', 'reise');
 
         }
 

@@ -225,6 +225,8 @@ abstract class AbstractBase
         $basePath = str_replace('\\', '/', $this->basePath);
 
         $currentUrl = $this->getCurrentUrl();
+
+        $controllerName = $_GET['controller'] ?? 'index';
       
         require_once $this->basePath . '/templates/layout.tpl.php';
     }
