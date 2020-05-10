@@ -2,7 +2,7 @@
 
 namespace helpers;
 
-class uploadHelper {
+class UploadHelper {
 
 	public static function createFile($directory, $filename) {
 

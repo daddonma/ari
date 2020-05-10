@@ -48,8 +48,9 @@ try {
 
     //Beispiel Benutzer anlegen
     $benutzerList = array(
-                            ['benutzername' => 'testUser', 'passwort' => sha1("test")],
-                            ['benutzername' => 'gastUser', 'passwort' => sha1("gast")]
+                            ['benutzername' => 'testUser', 'passwortHash' => sha1("test")],
+                            ['benutzername' => 'gastUser', 'passwortHash' => sha1("gast")],
+                            ['benutzername' => 'admin', 'passwortHash' => sha1("admin123")]
                         );
 
     foreach($benutzerList AS $key => $benutzerData) {

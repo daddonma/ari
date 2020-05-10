@@ -32,6 +32,7 @@ abstract class AbstractBase
         $this->addCss(CSS_URL."\\flash_messages.css");
         $this->addCss(CSS_URL."\\icons.css");
 
+        $this->addJs($jsDir."\\teaserbox.js");
         $this->addJs($jsDir."\script.js");
     }
 
@@ -180,7 +181,7 @@ abstract class AbstractBase
         exit;
     }
 
-    protected function redirect($action = null, $controller = null)
+    protected function redirect($action = null, $controller = null, bool $backend = false)
     {
         $params = [];
 
@@ -197,7 +198,15 @@ abstract class AbstractBase
             $to = '?' . implode('&', $params);
         }
 
-        header('Location: index.php' . $to);
+        if(!$backend) {
+            $baseUrl = str_replace("\\", "/", BASE_URL) ;
+        } else {
+            $baseUrl =str_replace("\\", "/", BASE_ADMIN_URL) ;
+        }
+
+        $target = $baseUrl.'/index.php/'.$file.$to;
+ 
+        header('Location: ' . $target);
         exit;
     }
 

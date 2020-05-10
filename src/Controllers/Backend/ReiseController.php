@@ -6,10 +6,10 @@ use Entities\Reise;
 use Entities\Kategorie;
 use Entities\Region;
 
-use helpers\htmlHelper;
+use helpers\HtmlHelper;
 use helpers\uploadHelper;
 
-class ReiseController extends \Controllers\AbstractBase {
+class ReiseController extends AbstractBase {
 
 	public function indexAction() {
 		$em =  $this->getEntityManager();

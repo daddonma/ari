@@ -2,7 +2,7 @@
 
 namespace helpers;
 
-class htmlHelper {
+class HtmlHelper {
 
 	private $em;
 

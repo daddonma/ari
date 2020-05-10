@@ -49,7 +49,7 @@
 		</li>
         
 		<li>
-		    <button class="submit" type="submit">Submit Form</button>
+		    <button class="submit" type="submit">Reise speichern</button>
 		</li>
 	</ul>
 </form>

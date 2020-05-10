@@ -1,5 +1,6 @@
 .flashMessage {
 	position: relative;
+	margin-top: .75rem;
 	padding: .75rem 1.25rem;
 	border: 1px solid transparent;
 	border-radius: .25rem

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
- *@ORM\Entity
+ *@ORM\Entity(repositoryClass="Repositories\BenutzerRepository")
  *@ORM\Table(name="benutzer")
 */
 class Benutzer extends AbstractEntity {
@@ -24,9 +24,9 @@ class Benutzer extends AbstractEntity {
 	protected $benutzername;
 
 	/**
-	* @ORM\Column(type="string")
+	* @ORM\Column(name="passwort_hash",type="string")
 	*/
-	protected $passwort;
+	protected $passwortHash;
 
 
 	public function __construct(array $data = []) {
@@ -52,11 +52,15 @@ class Benutzer extends AbstractEntity {
 	}
 
 
-	public function getPasswort() {
-		return $this->passwort;
+	public function getPasswortHash() {
+		return $this->passwortHash;
+	}
+
+	public function setPasswortHash(string $passwortHash) {
+		$this->passwortHash = $passwortHash;
 	}
 
 	public function setPasswort(string $passwort) {
-		$this->passwort = $passwort;
+		$this->setPasswortHash(sha1($passwort));
 	}
 }

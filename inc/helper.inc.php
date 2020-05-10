@@ -1,7 +1,5 @@
 <?php 
-require 'htmlHelper.inc.php';
-require 'uploadHelper.inc.php';
 
-function print_pre($print) {
-	echo "<pre>{$print}</pre>";
-}
+require 'AuthHelper.inc.php';
+require 'HtmlHelper.inc.php';
+require 'UploadHelper.inc.php';
