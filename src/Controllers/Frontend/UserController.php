@@ -5,7 +5,7 @@ namespace Controllers\Frontend;
 use Entities\Benutzer;
 use Helpers\AuthHelper;
 
-class UserController extends \Controllers\AbstractBase {
+class UserController extends AbstractBase {
 
 	public function indexAction() {
 
