@@ -41,6 +41,11 @@ class Reise extends AbstractEntity {
 	/**
 	* @ORM\Column(type="string")
 	*/
+	protected $beschreibung;
+
+	/**
+	* @ORM\Column(type="string", length=255)
+	*/
 	protected $kurzbeschreibung;
 
 	/**
@@ -121,6 +126,14 @@ class Reise extends AbstractEntity {
 
 	public function getPreis() {
 		return $this->preis;
+	}
+
+	public function getBeschreibung() {
+		return $this->beschreibung;
+	}	
+
+	public function setBeschreibung(string $beschreibung) {
+		$this->beschreibung = $beschreibung;
 	}
 
 	public function getKurzbeschreibung() {

@@ -43,10 +43,17 @@
             <input id="inputDetailbild" type="file" name="detailbild" />
         </li>
 
-		<li>
-		    <label for="message">Kurzbeschreibung:<sup>*</sup></label>
-		    <textarea name="kurzbeschreibung" cols="100" rows="6" placeholder="Kurzbeschreibung" max=255><?= $reise->getKurzbeschreibung()?></textarea>
-		</li>
+        <li>
+            <label for="kurzbeschreibung">Kurzbeschreibung:<sup>*</sup></label>
+            <textarea id="kurzbeschreibung" name="kurzbeschreibung" cols="100" rows="6" placeholder="Kurzbeschreibung" max=255><?= $reise->getKurzbeschreibung()?></textarea>
+        </li>
+
+        <li>
+            <label for="beschreibung">Ausführliche Beschreibung:<sup>*</sup></label>
+            <textarea id="beschreibung" name="beschreibung" cols="100" rows="6" placeholder="Kurzbeschreibung"><?= $reise->getBeschreibung()?></textarea>
+        </li>
+
+		
         
 		<li>
 		    <button class="submit" type="submit">Reise speichern</button>

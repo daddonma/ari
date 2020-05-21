@@ -9,12 +9,15 @@ class ReiseValidator extends EntityValidator  {
 
 	public function validateTitel($titel) {
 
-		if(empty($titel)) 
+		if(empty($titel)) {
 			$this->addError("Der Titel darf nicht leer sein");
-		else if(strlen($titel) < 5)
+		}
+		else if(strlen($titel) < 5) {
 			$this->addError("Der Titel muss mindestens 5 Zeichen lang sein");
-		else if(strlen($titel) > 100)
+		}
+		else if(strlen($titel) > 100) {
 			$this->addError("Der Titel darf maximal 100 Zeichen lang sein");
+		}
 	}
 
 	public function validateBeginn($beginn) {
@@ -35,6 +38,14 @@ class ReiseValidator extends EntityValidator  {
 		}
 	}
 
+	public function validateBeschreibung($beschreibung) {
+		if(empty($beschreibung)) {
+			$this->addError("Die Beschreibung darf nicht leer sein.");
+		} elseif(strlen($beschreibung) < 10) {
+			$this->addError("Die Beschreibung ist zu kurz.");
+		}
+	}
+
 	public function validateKurzbeschreibung($kurzbeschreibung) {
 		if(empty($kurzbeschreibung))
 			$this->addError("Die Krzbeschreibung darf nicht leer sein");
@@ -44,13 +55,16 @@ class ReiseValidator extends EntityValidator  {
 	}
 
 	public function validateDetailbild($detailbild) {
-		if(empty($detailbild)) $this->addError("Es muss ein Detailbild angegeben sein");
+		if(empty($detailbild)) {
+			$this->addError("Es muss ein Detailbild angegeben sein");
+		}
 	}
 
 	public function validateVorschaubild($vorschaubild) {
-		if(empty($vorschaubild)) $this->addError("Es muss ein Vorschaubild angegeben sein");
+		if(empty($vorschaubild)) {
+			$this->addError("Es muss ein Vorschaubild angegeben sein");
+		}	
 	}
-
 
 
 }
