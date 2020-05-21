@@ -34,6 +34,7 @@ abstract class AbstractBase
 
         $this->addJs($jsDir."\\teaserbox.js");
         $this->addJs($jsDir."\script.js");
+        $this->addJs($jsDir."\\". lcfirst($this->getControllerShortName()) .".js");
     }
 
     public function run($action)

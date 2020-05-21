@@ -6,7 +6,7 @@ use \Doctrine\Common\Collections\ArrayCollection;
 use Webmasters\Doctrine\ORM\Util;
 
 /**
- *@ORM\Entity
+ *@ORM\Entity(repositoryClass="Repositories\ReiseRepository")
  *@ORM\Table(name="reisen")
 */
 class Reise extends AbstractEntity {

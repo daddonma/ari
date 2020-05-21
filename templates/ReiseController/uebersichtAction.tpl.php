@@ -1,3 +1,21 @@
+<div id="filterBox">
+  <p>
+<h3>Filter</h3>
+  <form id="filter" action="?controller=reise&action=uebersicht" method="post">
+    <select name="kategorieID">
+      <?= $kategorieOptionList ?>
+    </select>
+
+    <select name="regionID">
+      <?= $regionenOptionList ?>
+    </select>
+
+    <input type="submit" name="reset" value="Filter löschen">
+  </form>
+  </p>
+  
+
+</div>
 <div class="reise-container">
 <?php foreach($reisen AS $reise): ?>
 <div class="reise-card">

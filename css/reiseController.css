@@ -1,3 +1,12 @@
+#filterBox {
+  width: 100%; 
+  text-align: center; 
+  background-color: rgba(169,155,152, 0.5); 
+  border: 1px solid black; 
+  margin: 1rem 0 2rem 0; 
+  padding: 1rem 0 1rem 0
+}
+
 .reise-card-content {
   position: relative;
   z-index: 1;

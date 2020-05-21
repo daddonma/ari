@@ -14,7 +14,7 @@ class HtmlHelper {
 		$list = $this->em->getRepository('Entities\Region')->findAll();
 		
 		if($showEmpty) {
-			$html = "<option>-- Bitte wählen --</option>";
+			$html = "<option value=''>-- Region wählen --</option>";
 		}else {
 			$html = "";
 		}
@@ -37,7 +37,7 @@ class HtmlHelper {
 		$list = $this->em->getRepository('Entities\Kategorie')->findAll();
 
 		if($showEmpty) {
-			$html = "<option>-- Bitte wählen --</option>";
+			$html = "<option value=''>-- Kategorie wählen --</option>";
 		}else {
 			$html = "";
 		}
