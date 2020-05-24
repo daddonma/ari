@@ -44,4 +44,15 @@ class ReiseController extends AbstractBase {
 		$this->addContext('reisen', $reisen);
 	}
 
+	public function detailAction() {
+
+		$em = $this->getEntityManager();
+
+		$reiseID = $_GET['id'];
+
+		$reise = $em->getRepository('Entities\Reise')->find($reiseID);
+
+		$this->addContext('reise', $reise);
+	}
+
 }

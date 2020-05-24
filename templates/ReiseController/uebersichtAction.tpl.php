@@ -27,7 +27,6 @@
        <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>-->
        <img src="2.jpg"/>
       </div>
-      <!-- Post Content-->
       <div class="body">
         <div class="kategorie"><?= $reise->getKategorie()->getName()?></div>
         <h1 class="title"><?= $reise->getTitel() ?></h1>
@@ -35,7 +34,7 @@
         <p class="kurzbeschreibung"><?= $reise->getKurzbeschreibung()?></p>
         <div class="content-footer">
            <hr>
-          <a href="#">Mehr Infos</a>
+          <a href="?controller=reise&action=detail&id=<?= $reise->getID(); ?>">Mehr Infos</a>
          
           <a href="#">Jetzt buchen </a>
 

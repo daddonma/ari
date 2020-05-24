@@ -23,10 +23,6 @@
 
     --title_heading_font_size: 10rem;
 
-    --menu_color_1:  rgba(226,172,15,1);
-    --menu_color_2: rgba(222,81,0,1);
-    --menu_color_3: rgba(128,43,0,1);
-
     --nav_bg_color_2: #8bbef1;
     --nav_bg_color_1: #e9eaeb;
 
@@ -74,7 +70,7 @@ body {
 
 #header {
     height: var(--header_height);
-     position: relative; /* wegen position:absolute von nav und search */
+    position: relative; /* wegen position:absolute von nav und search */
 }
 
 #slideshow .slideshow-1{
@@ -376,6 +372,21 @@ input[type="button"], a[type="button"] {
 .message, .errors {
     color: #ff0000;
 }
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+} 
+
+.clearfix::after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1; /* Für den IE6 und IE7 */
+}
+
 
 /*
 body {

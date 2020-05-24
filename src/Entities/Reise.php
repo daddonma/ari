@@ -39,7 +39,7 @@ class Reise extends AbstractEntity {
 	protected $preis;
 
 	/**
-	* @ORM\Column(type="string")
+	* @ORM\Column(type="string", length=10000)
 	*/
 	protected $beschreibung;
 
