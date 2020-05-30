@@ -8,7 +8,7 @@ use helpers\HtmlHelper;
 class ReiseController extends AbstractBase {
 
 	public function indexAction() {
-
+		
 		//Auf die Ubersicht Seite weiterleiten
 		$this->redirect('uebersicht', 'reise');
 	}
@@ -49,7 +49,7 @@ class ReiseController extends AbstractBase {
 		$em = $this->getEntityManager();
 
 		if(!isset($_GET['id'])) $this->render404();
-		
+
 		$reiseID = $_GET['id'];
 
 		$reise = $em->getRepository('Entities\Reise')->find($reiseID);

@@ -9,7 +9,7 @@
         </li>
         
         <li>
-            <a href="#">Aktuelle Reiseangebote</a>
+            <a href="?controller=reise">Aktuelle Reiseangebote</a>
         </li>
         
         <li>

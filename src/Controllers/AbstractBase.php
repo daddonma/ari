@@ -19,26 +19,18 @@ abstract class AbstractBase
         $this->basePath = $basePath;
         $this->em = $em;
 
-        if(strpos(get_class($this), 'Backend')) {
-            $cssDir = "admin\css";
-            $jsDir = "admin\js";
-        } else {
-             $cssDir = "css";
-            $jsDir = "js";
-        }
-        
         $controllerName=lcfirst($this->getControllerShortName());
 
         //Standard CSS laden
-        $this->addCss("{$cssDir}\\stylesheet.css");
-        $this->addCss("{$cssDir}\\{$controllerName}.css");
-        $this->addCss("{$cssDir}\\flash_messages.css");
-        $this->addCss("{$cssDir}\\icons.css");
+        $this->addCss("css\\stylesheet.css");
+        $this->addCss("css\\{$controllerName}.css");
+        $this->addCss("css\\flash_messages.css");
+        $this->addCss("css\\icons.css");
         
         //Standard JS laden
-        $this->addJs("{$jsDir}\\script.js");
-        $this->addJs("{$jsDir}\\teaserbox.js");
-        $this->addJs("{$jsDir}\\{$controllerName}.js");
+        $this->addJs("js\\script.js");
+        $this->addJs("js\\teaserbox.js");
+        $this->addJs("js\\{$controllerName}.js");
     }
 
     public function run($action)
@@ -203,14 +195,13 @@ abstract class AbstractBase
             $to = '?' . implode('&', $params);
         }
 
-        if(!$backend) {
-            $baseUrl = str_replace("\\", "/", BASE_URL) ;
-        } else {
-            $baseUrl =str_replace("\\", "/", BASE_ADMIN_URL) ;
+        if($backend) {
+            $target = '/ari/admin'.$file.$to;
         }
-
-        $target = $baseUrl.'/index.php/'.$file.$to;
- 
+        else {
+            $target = '/ari'.$file.$to;
+        }
+            
         header('Location: ' . $target);
         exit;
     }
