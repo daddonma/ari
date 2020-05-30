@@ -20,21 +20,25 @@ abstract class AbstractBase
         $this->em = $em;
 
         if(strpos(get_class($this), 'Backend')) {
-            $cssDir = CSS_ADMIN_URL;
-            $jsDir = JS_ADMIN_URL;
+            $cssDir = "admin\css";
+            $jsDir = "admin\js";
         } else {
-             $cssDir = CSS_URL;
-            $jsDir = JS_URL;
+             $cssDir = "css";
+            $jsDir = "js";
         }
         
-        $this->addCss($cssDir."\\stylesheet.css");
-        $this->addCss($cssDir."\\". lcfirst($this->getControllerShortName()) .".css");
-        $this->addCss(CSS_URL."\\flash_messages.css");
-        $this->addCss(CSS_URL."\\icons.css");
+        $controllerName=lcfirst($this->getControllerShortName());
 
-        $this->addJs($jsDir."\\teaserbox.js");
-        $this->addJs($jsDir."\script.js");
-        $this->addJs($jsDir."\\". lcfirst($this->getControllerShortName()) .".js");
+        //Standard CSS laden
+        $this->addCss("{$cssDir}\\stylesheet.css");
+        $this->addCss("{$cssDir}\\{$controllerName}.css");
+        $this->addCss("{$cssDir}\\flash_messages.css");
+        $this->addCss("{$cssDir}\\icons.css");
+        
+        //Standard JS laden
+        $this->addJs("{$jsDir}\\script.js");
+        $this->addJs("{$jsDir}\\teaserbox.js");
+        $this->addJs("{$jsDir}\\{$controllerName}.js");
     }
 
     public function run($action)

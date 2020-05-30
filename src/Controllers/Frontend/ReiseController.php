@@ -48,6 +48,20 @@ class ReiseController extends AbstractBase {
 
 		$em = $this->getEntityManager();
 
+		if(!isset($_GET['id'])) $this->render404();
+		
+		$reiseID = $_GET['id'];
+
+		$reise = $em->getRepository('Entities\Reise')->find($reiseID);
+
+		$this->addContext('reise', $reise);
+	}
+
+	public function buchenAction() {
+		$em = $this->getEntityManager();
+
+		if(!isset($_GET['id'])) $this->render404();
+		
 		$reiseID = $_GET['id'];
 
 		$reise = $em->getRepository('Entities\Reise')->find($reiseID);
