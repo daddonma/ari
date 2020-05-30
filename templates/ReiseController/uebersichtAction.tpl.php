@@ -36,7 +36,7 @@
            <hr>
           <a href="?controller=reise&action=detail&id=<?= $reise->getID(); ?>">Mehr Infos</a>
          
-          <a href="#">Jetzt buchen </a>
+          <a href="?controller=reise&action=buchen&id=<?= $reise->getID(); ?>">Jetzt buchen </a>
 
         </div>
       </div>

@@ -19,16 +19,21 @@ abstract class AbstractBase
         $this->basePath = $basePath;
         $this->em = $em;
 
+        $this->cssFiles['preload'] = array();
+        $this->cssFiles['noPreload'] = array();
+        $this->jsFiles['preload'] = array();
+        $this->jsFiles['noPreload'] = array();
+
         $controllerName=lcfirst($this->getControllerShortName());
 
         //Standard CSS laden
-        $this->addCss("css\\stylesheet.css");
+        $this->addCss("css\\stylesheet.css", false);
         $this->addCss("css\\{$controllerName}.css");
         $this->addCss("css\\flash_messages.css");
         $this->addCss("css\\icons.css");
         
         //Standard JS laden
-        $this->addJs("js\\script.js");
+        $this->addJs("js\\script.js", true);
         $this->addJs("js\\teaserbox.js");
         $this->addJs("js\\{$controllerName}.js");
     }
@@ -92,16 +97,26 @@ abstract class AbstractBase
         $_SESSION['message'] = $message; // Set flash message
     }
 
-    protected function addCss($cssFile) {
-         $this->cssFiles[] = $cssFile;
+    protected function addCss($cssFile, $preload = false) {
+
+         if($preload)
+            $this->cssFiles['preload'][] = $cssFile;
+        else 
+            $this->cssFiles['noPreload'][] = $cssFile;
+
     }
 
     protected function getCssFiles() {
         return $this->cssFiles;
     }
 
-    protected function addJs($jsFile) {
-        $this->jsFiles[] = $jsFile;
+    protected function addJs($jsFile, $preload = false) {
+
+        if($preload)
+            $this->jsFiles['preload'][] = $jsFile;
+        else 
+            $this->jsFiles['noPreload'][] = $jsFile;
+
     }
 
     protected function getJsFiles() {
@@ -215,7 +230,6 @@ abstract class AbstractBase
     {
         extract($this->context);
 
-
         //Flash Messages
         $message = $this->getMessage(); // Get flash message
         $successMessage = $this->getSuccessMessage();
@@ -223,9 +237,8 @@ abstract class AbstractBase
         $errorArray = $this->getErrorArray();
 
         $cssFiles = $this->getCssFiles();
-   
         $jsFiles = $this->getJsFiles();
-
+    
         $template = $this->getTemplate();
         $basePath = str_replace('\\', '/', $this->basePath);
 

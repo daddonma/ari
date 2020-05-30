@@ -8,6 +8,4 @@
 	const submitFilterForm = () => {
 		$('#filter').submit();
 	};
-
-	initFilterForm();
 }

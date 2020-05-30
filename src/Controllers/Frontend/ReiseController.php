@@ -8,7 +8,7 @@ use helpers\HtmlHelper;
 class ReiseController extends AbstractBase {
 
 	public function indexAction() {
-		
+
 		//Auf die Ubersicht Seite weiterleiten
 		$this->redirect('uebersicht', 'reise');
 	}
@@ -58,6 +58,9 @@ class ReiseController extends AbstractBase {
 	}
 
 	public function buchenAction() {
+		$this->addJs("js\\tabs.js");
+		$this->addCss("css\\tabs.css");
+
 		$em = $this->getEntityManager();
 
 		if(!isset($_GET['id'])) $this->render404();

@@ -7,15 +7,20 @@
 
         <title>ARI</title>
 
+        <!-- JS einbinden--> 
+        <?php foreach($jsFiles['preload'] AS $jsFile): ?>
+            <script src="<?= $jsFile ?>"></script> 
+        <?php endforeach; ?>
+
         <!-- CSS einbinden -->
-        <?php foreach($cssFiles AS $cssFile): ?>
-        <link type="text/css" rel="stylesheet" href="<?= $cssFile?>" />
+        <?php foreach($cssFiles['preload'] AS $cssFile): ?>
+            <link type="text/css" rel="stylesheet" href="<?= $cssFile?>" />
+        <?php endforeach; ?>
+
+        <?php foreach($cssFiles['noPreload'] AS $cssFile): ?>
+            <link type="text/css" rel="stylesheet" href="<?= $cssFile?>" />
         <?php endforeach; ?>
         
-        <?php foreach($jsFiles AS $jsFile): ?>
-        <script src="<?= $jsFile ?>" defer="defer"></script>    
-        
-        <?php endforeach; ?>
 
     </head>
 
@@ -35,5 +40,13 @@
         </main>
     </body>
 
-    <?php require 'general/footer.tpl.php'?>
+    <footer id="footer">
+
+        <?php require 'general/footer.tpl.php'?>
+
+        <?php foreach($jsFiles['noPreload'] AS $jsFile): ?>
+            <script src="<?= $jsFile ?>" defer="defer"></script> 
+        <?php endforeach; ?>
+    </footer>
+   
 </html>
