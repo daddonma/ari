@@ -4,6 +4,7 @@ namespace Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use \Doctrine\Common\Collections\ArrayCollection;
+use Webmasters\Doctrine\ORM\Util;
 
 /**
  *@ORM\Entity
@@ -111,7 +112,7 @@ class Person extends AbstractEntity {
 	public function setTitel($titel) {
 		if(empty($titel)) $titel = null;
 
-		$this->tiutel = $titel;
+		$this->titel = $titel;
 	}
 
 	public function getVorname() {
@@ -135,7 +136,7 @@ class Person extends AbstractEntity {
 	}
 
 	public function setGeburtsdatum($geburtsdatum) {
-		$this->geburtsdatum = $geburtsdatum;
+		$this->geburtsdatum = new Util\DateTime($geburtsdatum);
 	}
 
 	public function getStrasse() {

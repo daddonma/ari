@@ -65,7 +65,8 @@ try {
     $anredenList = array(
                             ['bezeichnung' => 'Herr'],
                             ['bezeichnung' => 'Frau'],
-                            ['bezeichnung' => 'Firma']
+                            ['bezeichnung' => 'Firma'],
+                            ['bezeichnung' => 'Sonstiges / Divers']
                         );
 
     foreach($anredenList AS $key => $anredeData) {

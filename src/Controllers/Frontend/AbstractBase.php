@@ -8,7 +8,14 @@ use Helpers\AuthHelper;
 abstract class AbstractBase extends \Controllers\AbstractBase{
 
 	public function __construct($basePath, EntityManager $em) {
+
 		parent::__construct($basePath, $em);
+
+		$this->addCss("css\\flash_messages.css");
+        $this->addCss("css\\icons.css");
+
+        $this->addJs("js\\teaserbox.js");
+
 	}
 	
 }

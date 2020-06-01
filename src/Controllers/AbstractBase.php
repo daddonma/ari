@@ -29,12 +29,9 @@ abstract class AbstractBase
         //Standard CSS laden
         $this->addCss("css\\stylesheet.css", false);
         $this->addCss("css\\{$controllerName}.css");
-        $this->addCss("css\\flash_messages.css");
-        $this->addCss("css\\icons.css");
-        
+
         //Standard JS laden
         $this->addJs("js\\script.js", true);
-        $this->addJs("js\\teaserbox.js");
         $this->addJs("js\\{$controllerName}.js");
     }
 
@@ -193,17 +190,19 @@ abstract class AbstractBase
         exit;
     }
 
-    protected function redirect($action = null, $controller = null, bool $backend = false)
+    protected function redirect($action = null, $controller = null, bool $backend = false, $params = array())
     {
-        $params = [];
+
 
         if (!empty($controller)) {
-            $params[] = 'controller=' . $controller;
+            $redirectParams[] = 'controller=' . $controller;
         }
 
         if (!empty($action)) {
-            $params[] = 'action=' . $action;
+            $redirectParams[] = 'action=' . $action;
         }
+
+        $params = array_merge($redirectParams, $params);
 
         $to = '';
         if (!empty($params)) {

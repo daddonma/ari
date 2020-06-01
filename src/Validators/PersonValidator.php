@@ -8,16 +8,14 @@ class PersonValidator extends EntityValidator  {
 
 	public function validateAnrede($anrede) {
 
-		if(empty($anrede)) $this->addError("Die Anrede darf nicht leer sein");
+		if(empty($anrede->getId())) $this->addError("Die Anrede darf nicht leer sein");
 	
 	}
 
 	public function validateTitel($titel) {
-		if(empty($anrede)) 
-			$this->addError("Der Titel darf nicht leer sein");
-		else if(strlen($titel) < 2)
+		if(!empty($titel) && strlen($titel) < 2)
 			$this->addError("Der Titel muss mindestens 2 Zeichen enthalten");
-		else if(strlen($titel) > 50)
+		else if(!empty($titel) && strlen($titel) > 50)
 			$this->addError("Der Titel darf maximal 50 Zeichen enthalten");
 	}
 
@@ -31,11 +29,11 @@ class PersonValidator extends EntityValidator  {
 	}
 
 	public function validateNachname($nachname) {
-		if(empty($vorname)) 
+		if(empty($nachname)) 
 			$this->addError("Der Nachname darf nicht leer sein");
-		else if(strlen($vorname) < 3)
+		else if(strlen($nachname) < 3)
 			$this->addError("Der Nachname muss mindestens 3 Zeichen enthalten");
-		else if(strlen($vorname) > 100)
+		else if(strlen($nachname) > 100)
 			$this->addError("Der Nachname darf maximal 100 Zeichen enthalten");
 	}
 
@@ -78,9 +76,9 @@ class PersonValidator extends EntityValidator  {
 	public function validateTelefonnummer($telefonnummer) {
 		if(empty($telefonnummer)) 
 			$this->addError("Die Telefonnummer darf nicht leer sein");
-		else if(strlen($ort) < 10)
+		else if(strlen($telefonnummer) < 10)
 			$this->addError("Die Telefonnummer muss mindestens 10 Zeichen enthalten");
-		else if(strlen($ort) > 20)
+		else if(strlen($telefonnummer) > 20)
 			$this->addError("Die Telefonnummer darf maximal 20 Zeichen enthalten");
 
 		//todo auf gültige Telefonnummer prüfen
@@ -96,5 +94,4 @@ class PersonValidator extends EntityValidator  {
 
 		//todo auf gültige E-Mail prüfen
 	} 
-}
 }

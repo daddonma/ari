@@ -16,8 +16,8 @@
 	    <td><?= $reise->getRegion()->getName(); ?></td>
 	    <td><?= $reise->getKategorie()->getName()?></td>
 	    <td><?= $reise->getPreis() ?> €</td>
-	    <td><a class="icon pencil" href='<?= BASE_URL ?>/admin?controller=reise&action=update&id=<?= $reise->getID()?>' title="Reise bearbeiten"></a></td>
-	   	<td><a class="icon trash" href='<?= BASE_URL ?>/admin?controller=reise&action=delete&id=<?= $reise->getID()?>' title="Reise l&ouml;schen"></a></td>
+	    <td><a class="icon pencil" href='?controller=reise&action=update&id=<?= $reise->getID()?>' title="Reise bearbeiten"></a></td>
+	   	<td><a class="icon trash" href='?controller=reise&action=delete&id=<?= $reise->getID()?>' title="Reise l&ouml;schen"></a></td>
   	</tr>
  
   <?php endforeach; ?>

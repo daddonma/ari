@@ -3,14 +3,20 @@
 {
 	const initTabs = () => {
 		$$('#tablist li.tab').on("click", function(elem) {
-			tabClicked(elem.target);
+			changeTab(elem.target);
+		});
+
+		$$('.tab-next').on("click", function(elem) {
+			const nextID = elem.target.dataset.next;
+			const nextTab = $('#'+nextID);
+			changeTab(nextTab);
 		});
 	}
 
-	const tabClicked = (selectedTab) => {
+	const changeTab = (tabToShow) => {
 		unsetActiveTab();
 
-		selectTab(selectedTab);
+		selectTab(tabToShow);
 	}
 
 	const unsetActiveTab = () => {

@@ -12,5 +12,9 @@ abstract class AbstractBase extends \Controllers\AbstractBase{
 		if(!AuthHelper::isLoggedIn()) $this->redirect('login', 'user');
 
 		parent::__construct($basePath, $em);
+
+		$this->addCss("..\\css\\flash_messages.css");
+        $this->addCss("..\\css\\icons.css");
+
 	}
 }

@@ -3,6 +3,9 @@
 namespace Controllers\Frontend;
 
 use Entities\Reise;
+use Entities\Buchung;
+use Entities\Person;
+use Entities\Anrede;
 use helpers\HtmlHelper;
 
 class ReiseController extends AbstractBase {
@@ -64,12 +67,75 @@ class ReiseController extends AbstractBase {
 		$em = $this->getEntityManager();
 
 		if(!isset($_GET['id'])) $this->render404();
-		
-		$reiseID = $_GET['id'];
 
+		//Reise anhand der ID ermitteln
+		$reiseID = $_GET['id'];
 		$reise = $em->getRepository('Entities\Reise')->find($reiseID);
 
+		$buchung = new Buchung();
+		$person = new Person();
+
+		$postData = $_POST;
+
+		//Postdaten gesetzt => Daten in die Objekte setzen und abspeichern
+		if(!empty($postData)) {
+
+			//leere Strings entfernen
+			$postData = array_filter($postData);
+
+			if(!empty($_POST['anredeID']))  
+				$anrede = $em->getRepository('Entities\Anrede')->find($_POST['anredeID']);
+			else
+				$anrede = new Anrede();
+
+			//die Person anlegen
+			$person->mapFromArray($postData);
+			$person->setAnrede($anrede);
+			$personValidator = $em->getValidator($person);
+			$personErrors = array();
+
+			if($personValidator->isValid()) {
+				$em->persist($person);
+			} else {
+				$personErrors = $personValidator->getErrors();
+				$this->setErrorMessage("Fehler beim Anlegen der Person", $personErrors);
+			}
+			//die Buchung anlegen
+			$buchung->mapFromArray($postData);
+			$buchung->setPerson($person);
+			$buchung->setReise($reise);
+
+			$buchungValidator = $em->getValidator($buchung);
+			$buchungErrors = array();
+
+			if($buchungValidator->isValid()) {
+				$em->persist($buchung);
+			} else {
+				$buchungErrors = $buchungValidator->getErrors();
+				$this->setErrorMessage("Fehler beim Anlegen der Buchung", $buchungErrors);
+			}
+
+			//Keine Errors vorhanden => in DB speichern
+			if(empty($personErrors) && empty($buchungErrors))  {
+				$em->flush();
+				
+				$this->setSuccessMessage('Die Buchung wurde erfolgreich vermerkt');
+				$params[] = 'id=' . $buchung->getId();
+				$this->redirect('success', 'buchung', false, $params);
+
+			}
+			
+		}
+
+		$htmlHelper = new HtmlHelper($em);
+
+		$anredeOptionList = $htmlHelper->getAnredeOptionList(null, true);
+
+		$this->addContext('anredeOptionList', $anredeOptionList);
 		$this->addContext('reise', $reise);
+		$this->addContext('buchung', $buchung);
+		$this->addContext('person', $person);
 	}
+
 
 }

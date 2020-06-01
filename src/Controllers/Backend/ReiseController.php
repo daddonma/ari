@@ -61,7 +61,7 @@ class ReiseController extends AbstractBase {
             }     
 
 			$validator = $em->getValidator($reise);
-
+				
 			if($validator->isValid()) {
 				$em->persist($reise);
 				$em->flush();
