@@ -27,7 +27,7 @@ abstract class AbstractBase
         $controllerName=lcfirst($this->getControllerShortName());
 
         //Standard CSS laden
-        $this->addCss("css\\stylesheet.css", false);
+        $this->addCss("css\\stylesheet.css");
         $this->addCss("css\\{$controllerName}.css");
 
         //Standard JS laden
@@ -97,9 +97,9 @@ abstract class AbstractBase
     protected function addCss($cssFile, $preload = false) {
 
          if($preload)
-            $this->cssFiles['preload'][] = $cssFile;
+             array_unshift($this->cssFiles['preload'], $cssFile);
         else 
-            $this->cssFiles['noPreload'][] = $cssFile;
+            array_unshift($this->cssFiles['noPreload'], $cssFile);
 
     }
 
@@ -110,9 +110,9 @@ abstract class AbstractBase
     protected function addJs($jsFile, $preload = false) {
 
         if($preload)
-            $this->jsFiles['preload'][] = $jsFile;
+            array_unshift($this->jsFiles['preload'], $jsFile);
         else 
-            $this->jsFiles['noPreload'][] = $jsFile;
+            array_unshift($this->jsFiles['noPreload'], $jsFile);
 
     }
 

@@ -45,14 +45,28 @@
 
         <li>
             <label for="kurzbeschreibung">Kurzbeschreibung:<sup>*</sup></label>
-            <textarea id="kurzbeschreibung" name="kurzbeschreibung" cols="100" rows="6" placeholder="Kurzbeschreibung" max=255><?= $reise->getKurzbeschreibung()?></textarea>
+            <input id="kurzbeschreibung" type="text" name="kurzbeschreibung" max=255 placeholder="kurzbeschreibung" value="<?= $reise->getKurzbeschreibung()?>"/>
+             <span class="form_hint">Pflichtfeld. Max. 255 Zeichen</span>
+          
         </li>
 
+        <?php /*
         <li>
             <label for="beschreibung">Ausführliche Beschreibung:<sup>*</sup></label>
-            <textarea id="beschreibung" name="beschreibung" cols="100" rows="6" placeholder="Kurzbeschreibung"><?= $reise->getBeschreibung()?></textarea>
+            <textarea id="beschreibung" name="beschreibung" cols="150" rows="20" placeholder="Kurzbeschreibung"><?= $reise->getBeschreibung()?></textarea>
         </li>
+        */ ?>
+        
+        <li>
 
+            <label for="beschreibung">Beschreibung:<sup>*</sup></label>
+            <div id="beschreibung" style="height: 250px; background-color:white">
+               <?= $reise->getBeschreibung()?>  
+            </div>
+            
+            <input type="hidden" name="beschreibung">
+        </li>
+        
 		
         
 		<li>
@@ -105,8 +119,8 @@
     padding:5px 8px;
 }
 
-.contact_form textarea {padding:8px; width:300px;}
-.contact_form button {margin-left:156px;}
+#kurzbeschreibung {padding:8px; width:300px;}
+.contact_form button[type="submit"] {margin-left:156px;}
 
 .form_hint {
     background: #d45252;

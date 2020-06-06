@@ -27,6 +27,11 @@ class ReiseController extends AbstractBase {
 	}
 
 	public function insertAction() {
+		
+		//Quill WYSIWYQ-Editor einbinden
+		$this->addCss( "..\\plugins\\quill\\css\\quill.snow.css");
+		$this->addJs( "..\\plugins\\quill\\js\\quill.min.js");
+
 		$em = $this->getEntityManager();
 
 		$reise = new Reise();
@@ -99,6 +104,11 @@ class ReiseController extends AbstractBase {
 	}
 
 	public function updateAction() {
+
+		//Quill WYSIWYQ-Editor einbinden
+		$this->addCss( "..\\plugins\\quill\\css\\quill.snow.css");
+		$this->addJs( "..\\plugins\\quill\\js\\quill.min.js");
+
 		$em = $this->getEntityManager();
 
 		$reiseID = $_GET['id'];
