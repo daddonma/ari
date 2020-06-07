@@ -198,4 +198,5 @@ $pfad = str_replace('/', '\\', $pfad);
 	public function addBuchung(Buchung $buchung) {
 		$this->buchungen->add($buchung);
 	}
+
 }

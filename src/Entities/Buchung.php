@@ -78,4 +78,9 @@ class Buchung extends AbstractEntity {
 	public function setPerson(Person $person) {
 		$this->person = $person;
 	}
+
+	public function getGesamtpreis() {
+		return $this->personenanzahl * $this->getReise()->getPreis();
+	}
+	
 }

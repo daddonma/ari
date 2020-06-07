@@ -1,6 +1,6 @@
 <h2>Reiseverwaltung</h2>
 <a href="?controller=reise&action=insert">Neue Reise anlegen</a>
- <table id="reiseTable">
+ <table id="reiseTable" class="adminTable">
   <tr>
     <th>Titel</th>
     <th>Region</th>

@@ -12,6 +12,10 @@ use helpers\uploadHelper;
 class ReiseController extends AbstractBase {
 
 	public function indexAction() {
+		$this->redirect("uebersicht", "reise", true);
+	}	
+
+	public function uebersichtAction() {
 		$em =  $this->getEntityManager();
 
 		$query = $em
@@ -23,7 +27,6 @@ class ReiseController extends AbstractBase {
 
         $reisen = $query->getResult();
         $this->addContext('reisen', $reisen);
-
 	}
 
 	public function insertAction() {

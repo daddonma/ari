@@ -211,12 +211,13 @@ abstract class AbstractBase
         }
 
         if($backend) {
-            $target = '/ari/admin'.$file.$to;
+            $target = '/ari/admin'.$to;
         }
         else {
-            $target = '/ari'.$file.$to;
+            $target = '/ari'.$to;
         }
             
+
         header('Location: ' . $target);
         exit;
     }
@@ -252,7 +253,7 @@ abstract class AbstractBase
         $currentUrl = $this->getCurrentUrl();
 
         $searchStr = $this->getSearchStr();
-        
+
         $controllerName = $_GET['controller'] ?? 'index';
       
         require_once $this->basePath . '/templates/layout.tpl.php';
