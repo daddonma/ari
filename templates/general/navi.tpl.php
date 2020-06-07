@@ -1,7 +1,7 @@
 <nav onclick="return true"><!-- return true um hover für Touchscreens aktivieren -->
     <ul>
         <li>
-            <a href="#">Startseite</a>
+            <a href="?controller=index">Startseite</a>
         </li>
         
         <li>

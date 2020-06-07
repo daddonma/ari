@@ -15,7 +15,9 @@ class ReiseRepository extends EntityRepository {
 						->createQueryBuilder()
 						->select('r')
 						->from(Reise::class, 'r')
-						->where('r.id > :id');
+						->leftJoin('r.kategorie', 'k')
+						->leftJoin('r.region', 're')
+						->where('re.id > :id');
 
 		$parameters['id'] = 0;
 
@@ -30,12 +32,23 @@ class ReiseRepository extends EntityRepository {
 		}
 
 		if($searchString) {
-			$queryBuilder->andWhere('(r.beschreibung LIKE :searchBeschreibung OR r.titel LIKE :searchTitel OR r.kurzbeschreibung LIKE :searchKurzbeschreibung)');
+
+			$searchFilter = '(
+								r.beschreibung LIKE :searchBeschreibung OR
+								r.kurzbeschreibung LIKE :searchKurzbeschreibung OR
+								r.titel LIKE :searchTitel OR
+								k.name LIKE :searchKategorie OR
+								re.name LIKE :searchRegion
+							)';
+
+			$queryBuilder->andWhere($searchFilter);
 
 			$searchString = '%'.trim($searchString).'%';
 			$parameters['searchBeschreibung'] = $searchString;
 			$parameters['searchTitel'] = $searchString;
 			$parameters['searchKurzbeschreibung'] = $searchString;
+			$parameters['searchKategorie'] = $searchString;
+			$parameters['searchRegion'] = $searchString;
 		}
 
 		$queryBuilder->setParameters($parameters);
