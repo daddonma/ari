@@ -2,6 +2,9 @@
   <p>
 <h3>Filter</h3>
   <form id="filter" action="?controller=reise&action=uebersicht" method="post">
+
+    <input type="hidden" name="searchStr" value="<?= $searchStr ?>" > 
+
     <select name="kategorieID">
       <?= $kategorieOptionList ?>
     </select>

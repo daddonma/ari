@@ -536,6 +536,7 @@ class Parser
      */
     private function isMathOperator($token)
     {
+        if(is_null($token)) return false;
         return in_array($token['type'], [Lexer::T_PLUS, Lexer::T_MINUS, Lexer::T_DIVIDE, Lexer::T_MULTIPLY]);
     }
 
@@ -2479,9 +2480,9 @@ class Parser
         // Peek beyond the matching closing parenthesis ')'
         $peek = $this->peekBeyondClosingParenthesis();
 
-        if (in_array($peek['value'], ["=",  "<", "<=", "<>", ">", ">=", "!="]) ||
+        if (is_array($peek) && (in_array($peek['value'], ["=",  "<", "<=", "<>", ">", ">=", "!="]) ||
             in_array($peek['type'], [Lexer::T_NOT, Lexer::T_BETWEEN, Lexer::T_LIKE, Lexer::T_IN, Lexer::T_IS, Lexer::T_EXISTS]) ||
-            $this->isMathOperator($peek)) {
+            $this->isMathOperator($peek))) {
             $condPrimary->simpleConditionalExpression = $this->SimpleConditionalExpression();
 
             return $condPrimary;

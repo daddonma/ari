@@ -19,10 +19,18 @@ class ReiseController extends AbstractBase {
 	public function uebersichtAction() {
 		$em = $this->getEntityManager();
 
+
 		//Filter zurücksetzen
 		if(isset($_REQUEST['reset'])) {
-			unset($_REQUEST['kategorieID']);
-			unset($_REQUEST['regionID']);
+
+			if(isset($_REQUEST['kategorieID']))
+				unset($_REQUEST['kategorieID']);
+
+			if(isset($_REQUEST['regionID']))
+				unset($_REQUEST['regionID']);
+
+			if(isset($_REQUEST['searchStr']))
+				unset($_REQUEST['searchStr']);
 		}
 
 		$kategorieID = null;
@@ -35,7 +43,13 @@ class ReiseController extends AbstractBase {
 			$regionID = $_REQUEST['regionID'];
 		}
 
-		$reisen  = $em->getRepository('\Entities\Reise')->findReisen($regionID, $kategorieID);
+		$searchStr = null;
+		if(isset($_REQUEST['searchStr'])) {
+			$searchStr = $_REQUEST['searchStr'];
+		}
+
+		
+		$reisen  = $em->getRepository('\Entities\Reise')->sucheReisen($regionID, $kategorieID, $searchStr);
 
 		$htmlHelper = new HtmlHelper($em);
 		

@@ -31,7 +31,8 @@ abstract class AbstractBase
         $this->addCss("css\\{$controllerName}.css");
 
         //Standard JS laden
-        $this->addJs("js\\script.js", true);
+        $this->addJs("js\\domHelper.js", true);
+        $this->addJs("js\\script.js");
         $this->addJs("js\\{$controllerName}.js");
     }
 
@@ -225,6 +226,13 @@ abstract class AbstractBase
       return $url;
     }
 
+    protected function getSearchStr() {
+        if(isset($_REQUEST['searchStr'])) 
+            return $_REQUEST['searchStr'];
+
+        return null;
+    }
+
     protected function render()
     {
         extract($this->context);
@@ -243,6 +251,8 @@ abstract class AbstractBase
 
         $currentUrl = $this->getCurrentUrl();
 
+        $searchStr = $this->getSearchStr();
+        
         $controllerName = $_GET['controller'] ?? 'index';
       
         require_once $this->basePath . '/templates/layout.tpl.php';

@@ -8,22 +8,43 @@ use \Entities\Reise;
 
 class ReiseRepository extends EntityRepository {
 
-	public function findReisen($regionID = null, $kategorieID = null) {
+	public function sucheReisen($regionID = null, $kategorieID = null, $searchString = null) {
 		$em = $this->getEntityManager();
 
-		$filter = array();
+		$queryBuilder = $em
+						->createQueryBuilder()
+						->select('r')
+						->from(Reise::class, 'r')
+						->where('r.id > :id');
 
-		if(!empty($regionID)) {
-			$filter['region'] = $regionID;
+		$parameters['id'] = 0;
+
+		if($regionID) {
+			$queryBuilder->andWhere('r.region = :region');
+			$parameters['region'] = $regionID;
 		}
 
-		if(!empty($kategorieID)) {
-			$filter['kategorie'] = $kategorieID;
+		if($kategorieID) {
+			$queryBuilder->andWhere('r.kategorie = :kategorie');
+			$parameters['kategorie'] = $kategorieID;
 		}
 
-		$reisen = $em->getRepository(Reise::class)->findBy($filter);
+		if($searchString) {
+			$queryBuilder->andWhere('(r.beschreibung LIKE :searchBeschreibung OR r.titel LIKE :searchTitel OR r.kurzbeschreibung LIKE :searchKurzbeschreibung)');
 
-		return $reisen;
+			$searchString = '%'.trim($searchString).'%';
+			$parameters['searchBeschreibung'] = $searchString;
+			$parameters['searchTitel'] = $searchString;
+			$parameters['searchKurzbeschreibung'] = $searchString;
+		}
+
+		$queryBuilder->setParameters($parameters);
+
+		$query = $queryBuilder->getQuery();
+
+		$result = $query->getResult();
+
+		return $result;
 	}
 
 
