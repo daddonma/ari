@@ -1,7 +1,8 @@
 "use strict";
 
 {
-	const initFilterForm = () => {
+
+	const handleFilterForm = () => {
 		$$('#filter select').on("change", submitFilterForm);
 	};
 
@@ -9,13 +10,25 @@
 		$('#filter').submit();
 	};
 
-	initFilterForm();
-	$$('input[data-output-target]').on("change", e => $('#'+e.target.dataset.outputTarget).textContent = e.target.value);
-	
-	$('#personenanzahl').on("change", e => $('#abschlussGesamtkosten').textContent = berechneGesamtkosten($('#kosten').innerHTML, e.target.value))
-	
-	const berechneGesamtkosten = (reisePreis, personenanzahl) => parseFloat(reisePreis) * personenanzahl;
-	
-	//const setTextByInputField = (inputField) => $('#'+inputfield.dataset.target).textContent = inputField.value;
+	const handleRequiredCheckboxes = () => {
 
+		$$('input.required[type="checkbox"]').on("click", function() {
+			if(checkIfAllRequiredAccepted()) {
+
+				$$('li.tab').forEach(tab => tab.classList.remove('disabled'));
+				$$('button.tab-next').forEach(button => button.classList.remove('disabled'));
+		
+			} else {
+				$$('li.tab').forEach(tab => tab.classList.add('disabled'));
+				$$('button.tab-next').forEach(button => button.classList.add('disabled'));
+			}
+
+		});
+	};
+
+	const checkIfAllRequiredAccepted = () => $$('input.required[type="checkbox"]').filter( checkbox => checkbox.checked != true).length === 0
+
+	
+	handleFilterForm();
+	handleRequiredCheckboxes();
 }

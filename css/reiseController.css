@@ -147,3 +147,29 @@
 
   padding: .25rem;
 }
+
+
+.buchungUebersichtTable {
+  width: 100%;
+}
+
+.buchungUebersichtTable td, .buchungUebersichtTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.buchungUebersichtTable tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.buchungUebersichtTable tr:hover {
+  background-color: #ddd;
+}
+
+.buchungUebersichtTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgba(165,168,93);
+  color: white;
+}

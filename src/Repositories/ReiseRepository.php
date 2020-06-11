@@ -11,15 +11,16 @@ class ReiseRepository extends EntityRepository {
 	public function sucheReisen($regionID = null, $kategorieID = null, $searchString = null) {
 		$em = $this->getEntityManager();
 
+
 		$queryBuilder = $em
 						->createQueryBuilder()
 						->select('r')
 						->from(Reise::class, 'r')
 						->leftJoin('r.kategorie', 'k')
 						->leftJoin('r.region', 're')
-						->where('re.id > :id');
+						->where('r.beginn > :today');
 
-		$parameters['id'] = 0;
+		$parameters['today'] = date('Y-m-d');
 
 		if($regionID) {
 			$queryBuilder->andWhere('r.region = :region');

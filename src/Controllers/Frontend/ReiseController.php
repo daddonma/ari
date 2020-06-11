@@ -97,6 +97,52 @@ class ReiseController extends AbstractBase {
 			//leere Strings entfernen
 			$postData = array_filter($postData);
 
+			$_SESSION['buchung'][$reise->getId()] = $postData;
+
+			if(!empty($_POST['anredeID']))  
+				$anrede = $em->getRepository('Entities\Anrede')->find($_POST['anredeID']);
+			else
+				$anrede = new Anrede();
+
+			$person->setAnrede($anrede);
+
+			//Postdaten in die Objekte setzen
+			$person->mapFromArray($postData);
+			$buchung->mapFromArray($postData);
+
+			$buchung->setPerson($person);
+			$buchung->setReise($reise);
+
+			$personValidator = $em->getValidator($person);
+			$buchungValidator = $em->getValidator($buchung);
+
+			//Person und Buchung validieren
+			$personIsValid = $personValidator->isValid();
+			$buchungIsValid = $buchungValidator->isValid();
+
+			//Keine Validierungsfehler => Daten in die Session setzen
+			if($personValidator && $buchungIsValid) {
+				//Daten in die Session setzen
+				$this->setTemplate('bestaetigung', 'BuchungController');
+			} else {
+
+				//Validierungsfehler aufgetreten
+				$personErrors = $personValidator->getErrors();
+				$buchungErros = $buchungValidator->getErrors();
+				$errors = array_merge($personErrors, $buchungErros);
+
+				$this->setErrorMessage('Beim Buchen der Reise ist ein Fehler aufgetreten', $errors);
+			}
+
+
+
+			//alt 
+
+			/*
+
+			//leere Strings entfernen
+			$postData = array_filter($postData);
+
 			if(!empty($_POST['anredeID']))  
 				$anrede = $em->getRepository('Entities\Anrede')->find($_POST['anredeID']);
 			else
@@ -131,6 +177,7 @@ class ReiseController extends AbstractBase {
 
 			//Keine Errors vorhanden => in DB speichern
 			if(empty($personErrors) && empty($buchungErrors))  {
+
 				$em->flush();
 				
 				$this->setSuccessMessage('Die Buchung wurde erfolgreich vermerkt');
@@ -138,7 +185,7 @@ class ReiseController extends AbstractBase {
 				$this->redirect('success', 'buchung', false, $params);
 
 			}
-			
+			*/
 		}
 
 		$htmlHelper = new HtmlHelper($em);

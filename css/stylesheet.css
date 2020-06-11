@@ -68,6 +68,9 @@ body {
     }
 }
 
+p {
+    margin-top: .75rem;
+}
 #header {
     height: var(--header_height);
     position: relative; /* wegen position:absolute von nav und search */

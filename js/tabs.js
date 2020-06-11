@@ -3,13 +3,18 @@
 {
 	const initTabs = () => {
 		$$('#tablist li.tab').on("click", function(elem) {
-			changeTab(elem.target);
+			if(!elem.target.classList.contains('disabled')) {
+				changeTab(elem.target);
+			}
+			
 		});
 
 		$$('.tab-next').on("click", function(elem) {
-			const nextID = elem.target.dataset.next;
-			const nextTab = $('#'+nextID);
-			changeTab(nextTab);
+			if(!elem.target.classList.contains('disabled')) {
+				const nextID = elem.target.dataset.next;
+				const nextTab = $('#'+nextID);
+				changeTab(nextTab);
+			}
 		});
 	}
 

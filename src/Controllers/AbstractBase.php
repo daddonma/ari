@@ -246,7 +246,7 @@ abstract class AbstractBase
 
         $cssFiles = $this->getCssFiles();
         $jsFiles = $this->getJsFiles();
-    
+        
         $template = $this->getTemplate();
         $basePath = str_replace('\\', '/', $this->basePath);
 
