@@ -2,9 +2,9 @@
 
 {
 
-	const handleFilterForm = () => {
+	/*const handleFilterForm = () => {
 		$$('#filter select').on("change", submitFilterForm);
-	};
+	}; */
 
 	const submitFilterForm = () => {
 		$('#filter').submit();
@@ -29,6 +29,6 @@
 	const checkIfAllRequiredAccepted = () => $$('input.required[type="checkbox"]').filter( checkbox => checkbox.checked != true).length === 0
 
 	
-	handleFilterForm();
+	//handleFilterForm();
 	handleRequiredCheckboxes();
 }

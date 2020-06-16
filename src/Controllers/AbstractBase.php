@@ -234,6 +234,55 @@ abstract class AbstractBase
         return null;
     }
 
+    private function getSearchSuggestions() {
+
+        //Wollte das eigentlich mit einem UNION lösen, doch leider scheint das nicht unterstützt zu werden
+
+        $searchTerms = [];
+
+        //Alle Reisen ermitteln, die noch nicht begonnen haben
+        $queryReisen = $this->em
+                        ->createQueryBuilder()
+                        ->select('r')
+                        ->from('Entities\Reise', 'r')
+                        ->where('r.beginn > :today')
+                        ->setParameter('today', date('Y-m-d'))
+                        ->getQuery();
+
+        $reisen = $queryReisen->getResult();
+
+        foreach($reisen AS $reise) {
+            $searchTerms[] = $reise->getTitel();
+        }
+
+        //Alle Kategorien ermitteln
+        $kategorien = $this->em
+                    ->getRepository('Entities\Kategorie', 'k')
+                    ->findAll();
+
+        foreach($kategorien AS $kategorie) {
+            $searchTerms[] = $kategorie->getName();
+        }
+
+        //Alle Regionen ermitteln
+        $regionen = $this->em
+                    ->getRepository('Entities\Region', 'r')
+                    ->findAll();
+
+        foreach($regionen AS $region) {
+            $searchTerms[] = $region->getName();
+        }
+
+        //Alphabetisch sortieren
+        natcasesort($searchTerms);
+
+        //doppelte Einträge löschen
+        $searchTerms = array_unique($searchTerms);
+        
+       return $searchTerms;
+
+    }
+
     protected function render()
     {
         extract($this->context);
@@ -255,7 +304,8 @@ abstract class AbstractBase
         $searchStr = $this->getSearchStr();
 
         $controllerName = $_GET['controller'] ?? 'index';
-      
+        $searchSuggestions = $this->getSearchSuggestions();
+
         require_once $this->basePath . '/templates/layout.tpl.php';
     }
 }

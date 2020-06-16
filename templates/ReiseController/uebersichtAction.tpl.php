@@ -1,3 +1,4 @@
+<!--
 <div id="filterBox">
   <p>
 <h3>Filter</h3>
@@ -18,7 +19,20 @@
   </p>
   
 
-</div>
+</div> -->
+
+<nav id="navKategorie" onclick="return true"><!-- return true um hover für Touchscreens aktivieren -->
+    <ul>
+
+      <?php foreach($kategorien AS $kategorie): ?>
+        <li class="<?php if($kategorie->getID() == $kategorieID) echo active ?>">
+            <a href="?controller=reise&action=uebersicht&kategorieID=<?= $kategorie->getID()?>"><?= $kategorie->getName()?></a>
+        </li>
+      <?php endforeach?>
+    
+    </ul>
+</nav>
+
 <div class="reise-container">
 <?php foreach($reisen AS $reise): ?>
 <div class="reise-card">

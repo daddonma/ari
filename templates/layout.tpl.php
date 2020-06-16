@@ -42,11 +42,23 @@
 
     <footer id="footer">
 
+        <script>
+            
+            let searchSuggestions = [];
+            <?php foreach($searchSuggestions AS $suggestion): ?>
+                searchSuggestions.push("<?= $suggestion?>");
+            <?php endforeach; ?>
+    
+        </script>
+
         <?php require 'general/footer.tpl.php'?>
+
+        
 
         <?php foreach($jsFiles['noPreload'] AS $jsFile): ?>
             <script src="<?= $jsFile ?>" defer="defer"></script> 
         <?php endforeach; ?>
     </footer>
+   
    
 </html>

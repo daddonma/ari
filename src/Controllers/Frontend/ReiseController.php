@@ -51,13 +51,23 @@ class ReiseController extends AbstractBase {
 		
 		$reisen  = $em->getRepository('\Entities\Reise')->sucheReisen($regionID, $kategorieID, $searchStr);
 
+		$kategorien = $this->em->getRepository('Entities\Kategorie')->findAll();
+
 		$htmlHelper = new HtmlHelper($em);
 		
+		/*
 		$regionenOptionList = $htmlHelper->getRegionenOptionList($regionID);
 		$kategorienOptionList = $htmlHelper->getKategorienOptionList($kategorieID);
+		*/
 
+		$this->addContext('kategorien', $kategorien);
+
+		/*
 		$this->addContext('regionenOptionList', $regionenOptionList);
 		$this->addContext('kategorieOptionList', $kategorienOptionList);
+		*/
+
+		$this->addContext('kategorieID', $kategorieID);
 		$this->addContext('reisen', $reisen);
 	}
 

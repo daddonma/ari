@@ -173,3 +173,66 @@
   background-color: rgba(165,168,93);
   color: white;
 }
+
+
+
+/* Kategorie Nav*/
+
+#navKategorie {
+    width: 100%; /* wegen position:absolute */
+    padding: 0;
+    
+  
+    z-index: 1; /* steht VOR Suchfeld (wichtig für Dropdown-Menü für Mobilgeräte) */
+    
+    border-color: #bbb;
+    border-width: 1px;
+    border-style: solid none;
+    
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+  
+    
+
+}
+
+
+#navKategorie ul {
+    list-style: none;
+    padding: 0;
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+#navKategorie ul li:hover{
+    background-color: grey;
+}
+
+
+#navKategorie ul li {
+    display: table-cell;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1.7em;
+    border-left: 1px solid #bbb;
+}
+
+#navKategorie ul li {
+  background-color: lightblue;
+}
+
+#navKategorie ul li.active {
+  background-color: orange;
+}
+#navKategorie ul li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+#navKategorie ul li a:hover {
+    color: black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+

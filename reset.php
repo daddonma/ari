@@ -35,7 +35,9 @@ try {
     $kategorienList = array(  
                             ['name' => 'Wanderurlaub'],
                             ['name' => 'Zelten'],
-                            ['name' => 'Action']
+                            ['name' => 'Action'],
+                            ['name' => 'Paragliding'],
+                            ['name' => 'Seeschifffahrt']
                         );
 
      foreach($kategorienList AS $key => $kategorieData) {

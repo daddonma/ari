@@ -21,8 +21,9 @@
 
     --header_height: 20rem;
 
-    --title_heading_font_size: 10rem;
+    --title_heading_font_size: 6rem; /* 10 rem */
 
+    --teaser_title_font_size: 6rem;
     --nav_bg_color_2: #8bbef1;
     --nav_bg_color_1: #e9eaeb;
 
@@ -72,13 +73,44 @@ p {
     margin-top: .75rem;
 }
 #header {
+
     height: var(--header_height);
     position: relative; /* wegen position:absolute von nav und search */
+
+    background: url(../images/header_mountain.jpg) no-repeat left center;
+    background-size:cover;
+}
+
+#header h1, #header h2 {
+    font-family: "Coaster Quake";
+    
+    text-align: center;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  
+    white-space: nowrap; /* kein Zeilenumbruch */
+    color: #fff;
+
+}
+
+#header h1 {
+    padding-top: 0.5rem;
+   font-size: var(--title_heading_font_size); 
+}
+
+#header h2 {
+    font-size: 3rem;
+}
+
+@media (max-width: 750px) {
+    #header h2 {
+    display: none;
+    }
 }
 
 #slideshow .slideshow-1{
    
-    background: url(../images/header_mountain.jpg) no-repeat left center;
+   /* background: url(../images/header_mountain.jpg) no-repeat left center; */
+   
     background-size: cover;
 
 }
@@ -90,7 +122,45 @@ p {
 
 }
 
-.prev, .next {
+.teaser h1, .slide h1 {
+    font-family: "Coaster Quake";
+    font-size: var(--teaser_title_font_size);
+    text-align: center;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+    line-height: 2em;
+   
+    color: #fff;
+}
+
+.teaser a {
+    display: block;
+    text-align: center;
+
+}
+
+.teaser.active {
+    display: block;
+}
+
+.teaser:not(.active) {
+    border: 2px solid red;
+    display: none;
+}
+
+@media (max-width: 750px) {
+    .teaser h1, .slide h1 {
+        font-size: calc(var(--teaser_title_font_size) / 1.55);
+    }
+}
+
+@media (max-width: 600px) {
+   .teaser h1, .slide h1 {
+        font-size: calc(var(--teaser_title_font_size) / 2);
+        line-height: 1.7em;
+    }
+}
+
+#teaserbox .prev, #teaserbox .next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -106,13 +176,13 @@ p {
 }
 
 /* Position the "next button" to the right */
-.next {
+#teaserbox .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+#teaserbox .prev:hover, #teaserbox .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
@@ -124,8 +194,20 @@ p {
     margin-bottom: 1.5rem;
 }
 
-input[type="search"] {
-   
+#header #search {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.7rem;
+    margin: 0 auto;
+    width: 40%;
+}
+
+
+#header #search input[type="search"] {
+
+    width: 100%; /* Suchfeld hat gesamte Breite des 40% breiten Containers */
+
     color: #444;
     background-color: rgba(255, 255, 255, 0.85);
     
@@ -158,18 +240,6 @@ input[type="button"], a[type="button"] {
     }
 }
 
-#header #search {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0.7rem;
-    margin: 0 auto;
-    width: 40%;
-}
-
-#header #search input[type="search"] {
-    width: 100%; /* Suchfeld hat gesamte Breite des 40% breiten Containers */
-}
 
 #header a#title {
     color: #fff;
@@ -177,27 +247,7 @@ input[type="button"], a[type="button"] {
     display: block;
 }
 
-#header a#title h1 {
-    font-family: "Coaster Quake";
-    font-size: var(--title_heading_font_size);
-    text-align: center;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
-    line-height: 2em;
-    white-space: nowrap; /* kein Zeilenumbruch */
-}
 
-@media (max-width: 750px) {
-    #header a#title h1 {
-        font-size: calc(var(--title_heading_font_size) / 1.55);
-    }
-}
-
-@media (max-width: 600px) {
-    #header a#title h1 {
-        font-size: calc(var(--title_heading_font_size) / 2);
-        line-height: 1.7em;
-    }
-}
 
 #header nav {
     width: 100%; /* wegen position:absolute */
@@ -389,77 +439,3 @@ input[type="button"], a[type="button"] {
 .clearfix {
   *zoom: 1; /* Für den IE6 und IE7 */
 }
-
-
-/*
-body {
-    background-color: #ecf1f2;
-    margin: 0px;
-    padding: 10px;
-    font-family: Verdana, Helvetica, Arial, Sans-Serif;
-    font-size: 12px;
-    color: #2d4652;
-}
-
-h1 {
-    color: #2d4652;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-section h1 {
-    font-size: 14px;
-}
-
-strong {
-    font-weight: bold;
-}
-
-em {
-    font-style: italic;
-}
-
-form, ul {
-    margin: 0px;
-    padding: 0px;
-}
-
-ul {
-    padding-left: 14px;
-}
-
-label {
-    display: block;
-    margin-top: 8px;
-}
-
-input[type="text"], input[type="password"], textarea {
-    display: block;
-    width: 90%;
-}
-
-a {
-    color: #2d4652;
-    text-decoration: underline;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-section, footer, .errors, .links, .button {
-    margin-top: 16px;
-}
-
-form {
-    margin-bottom: 16px;
-}
-
-#random, #random a {
-    color: #008000;
-}
-
-.message, .errors {
-    color: #ff0000;
-}
-*/

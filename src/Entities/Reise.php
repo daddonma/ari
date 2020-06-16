@@ -158,14 +158,15 @@ class Reise extends AbstractEntity {
 
 	public function getVorschaubildPfad() {
 
-		$uploadsDir = UPLOADS_DIR;
+		$uploadsDir = UPLOADS_URL;
 		$vorschaubild = $this->getVorschaubild();
 		$id = $this->getID();
 
 		$pfad = "{$uploadsDir}/reisen/{$id}/vorschau/{$vorschaubild}";
 
-		//$pfad = str_replace('\\', '/', $pfad);
-$pfad = str_replace('/', '\\', $pfad);
+		$pfad = str_replace('\\', '/', $pfad);
+
+//$pfad = str_replace('/', '\\', $pfad);
 
 		return $pfad;
 	}
