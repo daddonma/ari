@@ -14,8 +14,6 @@ abstract class AbstractBase extends \Controllers\AbstractBase{
 		$this->addCss("css\\flash_messages.css");
         $this->addCss("css\\icons.css");
 
-        $this->addJs("js\\teaserbox.js");
-
 	}
 	
 }

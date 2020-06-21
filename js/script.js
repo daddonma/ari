@@ -4,7 +4,6 @@
 {
 
 	const initAutocomplete = searchArray => {
-		console.log(searchArray);
 
 		$('#search input[type="search"]').on("keyup", function(element) {
 			

@@ -44,11 +44,13 @@
 
         <script>
             
+
             let searchSuggestions = [];
             <?php foreach($searchSuggestions AS $suggestion): ?>
                 searchSuggestions.push("<?= $suggestion?>");
             <?php endforeach; ?>
-    
+            
+            const action = "<?= $action ?>";
         </script>
 
         <?php require 'general/footer.tpl.php'?>

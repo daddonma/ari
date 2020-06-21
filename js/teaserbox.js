@@ -96,7 +96,7 @@
 	}
 
 	const autoslide = () => {
-		window.setInterval(showNextTeaser, 3000);
+		window.setInterval(showNextTeaser, 8000);
 	}
 
 	const shuffleArray = array => array.slice().sort((a, b) => Math.random() - 0.5);

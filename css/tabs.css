@@ -1,7 +1,14 @@
 #tablist li[aria-selected="true"] {
 	background-color: white;
-  	padding: 0.5em 0.5em 11px;  
+  padding: 0.5em 0.5em 11px;  
+
 }
+
+#tablist li:focus, 
+#tablist li:hover {
+  background-color: yellow;
+}
+
 
 div[aria-hidden="true"] {
 	display: none;
@@ -30,15 +37,19 @@ div[aria-hidden="true"] {
   padding: 0.5em 0.5em 10px;
 }
 
-#tablist li:focus, 
-#tablist li:hover {
-  background-color: yellow;
+@media (max-width: 576px) { 
+
+  #tablist li {
+    display:block;
+  }
+
+  #tablist li[aria-selected="true"] {
+    background-color: orange;
+  }
+
+
 }
 
-#tablist li[aria-selected="true"] {
-  background-color: white;
-  padding: 0.5em 0.5em 11px;  
-}
 
 #tabcontent {
   background-color: white;

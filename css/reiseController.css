@@ -1,21 +1,9 @@
-#filterBox {
-  width: 100%; 
-  text-align: center; 
-  background-color: rgba(169,155,152, 0.5); 
-  border: 1px solid black; 
-  margin: 1rem 0 2rem 0; 
-  padding: 1rem 0 1rem 0
-}
-
 .reise-card-content {
   position: relative;
   z-index: 1;
   display: block;
   min-width: 270px;
   height: 470px;
-  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 1px 35px 0px rgba(0, 0, 0, 0.3);
 
 }
@@ -39,10 +27,6 @@
 .reise-card-content .header img {
   display: block;
   width: 120%;
-  -webkit-transition: all 0.3s linear 0s;
-  -moz-transition: all 0.3s linear 0s;
-  -ms-transition: all 0.3s linear 0s;
-  -o-transition: all 0.3s linear 0s;
   transition: all 0.3s linear 0s;
 }
 .reise-card-content .body {
@@ -51,8 +35,6 @@
   background: #FFFFFF;
   width: 100%;
   padding: 30px;
-  -webkti-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-height: 250px;
 }
@@ -89,26 +71,21 @@
   min-width: 640px;
   margin: 0 auto;
 }
-.reise-container:before,
-.reise-container:after {
-  content: '';
-  display: block;
-  clear: both;
-}
+
 .reise-container .reise-card {
   width: 50%;
   padding: 0 25px;
-  -webkti-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   float: left;
   margin: .75rem 0 .75rem 0;
 }
 
 
-@media (max-width: 750px) {
+@media (max-width: 768px) {
     .reise-container .reise-card {
-      width: 85%;
+      width: 75%;
+      margin: 0;
+      padding: 0;
     }
 }
 
@@ -181,8 +158,6 @@
 #navKategorie {
     width: 100%; /* wegen position:absolute */
     padding: 0;
-    
-  
     z-index: 1; /* steht VOR Suchfeld (wichtig für Dropdown-Menü für Mobilgeräte) */
     
     border-color: #bbb;
@@ -191,8 +166,6 @@
     
     box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
   
-    
-
 }
 
 
@@ -235,4 +208,3 @@
     color: black;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
 }
-

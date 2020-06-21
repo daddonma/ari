@@ -2,14 +2,6 @@
 
 {
 
-	/*const handleFilterForm = () => {
-		$$('#filter select').on("change", submitFilterForm);
-	}; */
-
-	const submitFilterForm = () => {
-		$('#filter').submit();
-	};
-
 	const handleRequiredCheckboxes = () => {
 
 		$$('input.required[type="checkbox"]').on("click", function() {
@@ -29,6 +21,8 @@
 	const checkIfAllRequiredAccepted = () => $$('input.required[type="checkbox"]').filter( checkbox => checkbox.checked != true).length === 0
 
 	
-	//handleFilterForm();
-	handleRequiredCheckboxes();
+	if(action == "buchen") {
+		handleRequiredCheckboxes();
+	}
+	
 }

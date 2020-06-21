@@ -37,10 +37,6 @@ class PersonValidator extends EntityValidator  {
 			$this->addError("Der Nachname darf maximal 100 Zeichen enthalten");
 	}
 
-	public function validateGeburtsdatum($geburtsdatum) {
-		//todo Geburtsdatum validieren
-	}
-
 	public function validateStasse($strasse) {
 		if(empty($strasse)) 
 			$this->addError("Die Strasse darf nicht leer sein");
@@ -85,13 +81,11 @@ class PersonValidator extends EntityValidator  {
 	} 
 
 	public function validateEmail($email) {
+
 		if(empty($email)) 
 			$this->addError("Die E-Mail darf nicht leer sein");
-		else if(strlen($email) < 5)
-			$this->addError("Die E-Mail muss mindestens 5 Zeichen enthalten");
-		else if(strlen($email) > 100)
-			$this->addError("Die E-Mail darf maximal 100 Zeichen enthalten");
-
-		//todo auf gültige E-Mail prüfen
+		else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$this->addError("Bitte geben Sie eine gültige E-Mail Adresse ein.");
+		}
 	} 
 }

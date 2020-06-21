@@ -21,8 +21,12 @@ class ReiseValidator extends EntityValidator  {
 	}
 
 	public function validateBeginn($beginn) {
+
+
 		if(empty($beginn)) {
 			$this->addError("Der Beginn darf nicht leer sein");
+		}else if(is_object($beginn) && $beginn->format('Y-m-d') < date('Y-m-d')) {
+			$this->addError("Der Beginn darf nicht in der Vergangenheit liegen.");
 		}
 	}
 

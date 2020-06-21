@@ -37,6 +37,7 @@ html {
     font-size: 100%;
     padding: 0;
     background-color: var(--background_color);
+    overflow-x: hidden;
 }
 
 body {   
@@ -50,28 +51,17 @@ body {
     
     background-color: var(--background_color_body);
     box-shadow: 0 1px 9px rgba(0, 0, 0, 0.4);
-    
+    margin: 0 auto; /* zentrieren */
 
-    min-width: 320px;
     max-width: 1400px;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box; /* padding wird nicht zur Höhe addiert */
 }
 
-@media (min-width: 1025px) {
-    body {
-
-        width: 90%;
-        margin: 0 auto; /* zentrieren */
-       
-    }
-}
 
 p {
     margin-top: .75rem;
 }
+
 #header {
 
     height: var(--header_height);
@@ -143,7 +133,6 @@ p {
 }
 
 .teaser:not(.active) {
-    border: 2px solid red;
     display: none;
 }
 
@@ -335,6 +324,7 @@ input[type="button"], a[type="button"] {
         top: 100%; /* unterer Rand des Buttons */
         background-color: rgba(0, 0, 0, 0.8);
         border-radius: var(--border_radius);
+
     }
     
     #header nav:hover ul {
@@ -349,6 +339,7 @@ input[type="button"], a[type="button"] {
         border-color: #888;
         border-width: 1px;
         border-style: solid none none none;
+
     }
     
     #header nav ul li a {
@@ -375,16 +366,6 @@ input[type="button"], a[type="button"] {
     }
 }
 
-
-#teaser {
-    height: var(--header_height);
-    position: relative; /* wegen position:absolute von nav und search */
-    background: url(../img/teaser_safari2.jpg) no-repeat left center;
-    background-size: cover;
-
-    border: 5px inset black;
-
-}
 
 
 /* Footer: */
@@ -438,4 +419,34 @@ input[type="button"], a[type="button"] {
 
 .clearfix {
   *zoom: 1; /* Für den IE6 und IE7 */
+}
+
+
+/**************************************************/
+/*                  Autocomplete                  */     
+/**************************************************/
+#autocomplete {
+    position: absolute;
+    width: 100%;
+}
+
+#autocomplete li {
+
+    background-color: white;
+    border-right: 2px solid rgba(255, 255, 255, 0.6);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+
+    list-style: none;
+    display: table;
+    margin-left: -40px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 1px;
+    background-color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    
+}
+#autocomplete li:hover {
+  background: yellow;
 }

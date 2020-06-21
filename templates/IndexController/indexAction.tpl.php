@@ -1,3 +1,24 @@
+<noscript>
+
+	<p class="flashMessage error">
+		JavaScript ist in Ihrem Browser deaktiviert. Um diese Seite uneingeschränkt nutzen zu können, aktivieren Sie JavaScript bitte wieder.
+	</p>
+
+	<style type="text/css">
+
+		#teaserbox .teaser:first-child {
+		   display: block;
+		}	
+
+
+		#teaserbox .prev, #teaserbox .next {
+		  display: none;
+		}
+				
+	</style>
+
+</noscript>
+
 <div class="clearfix">
 	<div style="float: left; width: 50%">
 		<h2>Herzlich Willkommen</h2> 
@@ -24,5 +45,6 @@
 	
 		<a class="slideshow prev">&#10094;</a>
     	<a class="slideshow next">&#10095;</a> 
+
 	</div>
 </div>

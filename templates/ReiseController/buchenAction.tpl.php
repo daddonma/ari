@@ -27,10 +27,10 @@
 
             <p>
               <fieldset>
-                <input class="required" type="checkbox" id="datenschutz">
+                <input class="required" type="checkbox" id="datenschutz" <?php if(!empty($errorArray)) echo 'checked' ?> >
                 <label for="datenschutz">Die <a href="#">Datenschutzerklärung</a> habe ich gelesen und stimme dieser zu.</label>
                 <br><br>
-                <input class="required" type="checkbox" id="reisebedingungen">
+                <input class="required" type="checkbox" id="reisebedingungen" <?php if(!empty($errorArray)) echo 'checked' ?>>
                 <label for="reisebedingungen">Die <a href="#">Reisebedingungen</a> habe ich gelesen und stimme diesen zu.</label>
               </fieldset>
             </p>

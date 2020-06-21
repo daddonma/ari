@@ -98,6 +98,7 @@ class ReiseController extends AbstractBase {
 
 		$buchung = new Buchung();
 		$person = new Person();
+		$anrede = new Anrede(); 
 
 		$postData = $_POST;
 
@@ -111,8 +112,6 @@ class ReiseController extends AbstractBase {
 
 			if(!empty($_POST['anredeID']))  
 				$anrede = $em->getRepository('Entities\Anrede')->find($_POST['anredeID']);
-			else
-				$anrede = new Anrede();
 
 			$person->setAnrede($anrede);
 
@@ -130,8 +129,9 @@ class ReiseController extends AbstractBase {
 			$personIsValid = $personValidator->isValid();
 			$buchungIsValid = $buchungValidator->isValid();
 
+
 			//Keine Validierungsfehler => Daten in die Session setzen
-			if($personValidator && $buchungIsValid) {
+			if($personIsValid && $buchungIsValid) {
 				//Daten in die Session setzen
 				$this->setTemplate('bestaetigung', 'BuchungController');
 			} else {
@@ -143,64 +143,11 @@ class ReiseController extends AbstractBase {
 
 				$this->setErrorMessage('Beim Buchen der Reise ist ein Fehler aufgetreten', $errors);
 			}
-
-
-
-			//alt 
-
-			/*
-
-			//leere Strings entfernen
-			$postData = array_filter($postData);
-
-			if(!empty($_POST['anredeID']))  
-				$anrede = $em->getRepository('Entities\Anrede')->find($_POST['anredeID']);
-			else
-				$anrede = new Anrede();
-
-			//die Person anlegen
-			$person->mapFromArray($postData);
-			$person->setAnrede($anrede);
-			$personValidator = $em->getValidator($person);
-			$personErrors = array();
-
-			if($personValidator->isValid()) {
-				$em->persist($person);
-			} else {
-				$personErrors = $personValidator->getErrors();
-				$this->setErrorMessage("Fehler beim Anlegen der Person", $personErrors);
-			}
-			//die Buchung anlegen
-			$buchung->mapFromArray($postData);
-			$buchung->setPerson($person);
-			$buchung->setReise($reise);
-
-			$buchungValidator = $em->getValidator($buchung);
-			$buchungErrors = array();
-
-			if($buchungValidator->isValid()) {
-				$em->persist($buchung);
-			} else {
-				$buchungErrors = $buchungValidator->getErrors();
-				$this->setErrorMessage("Fehler beim Anlegen der Buchung", $buchungErrors);
-			}
-
-			//Keine Errors vorhanden => in DB speichern
-			if(empty($personErrors) && empty($buchungErrors))  {
-
-				$em->flush();
-				
-				$this->setSuccessMessage('Die Buchung wurde erfolgreich vermerkt');
-				$params[] = 'id=' . $buchung->getId();
-				$this->redirect('success', 'buchung', false, $params);
-
-			}
-			*/
 		}
 
 		$htmlHelper = new HtmlHelper($em);
 
-		$anredeOptionList = $htmlHelper->getAnredeOptionList(null, true);
+		$anredeOptionList = $htmlHelper->getAnredeOptionList($anrede->getId(), true);
 
 		$this->addContext('anredeOptionList', $anredeOptionList);
 		$this->addContext('reise', $reise);

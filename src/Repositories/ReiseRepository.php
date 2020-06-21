@@ -11,7 +11,6 @@ class ReiseRepository extends EntityRepository {
 	public function sucheReisen($regionID = null, $kategorieID = null, $searchString = null) {
 		$em = $this->getEntityManager();
 
-
 		$queryBuilder = $em
 						->createQueryBuilder()
 						->select('r')
@@ -61,5 +60,30 @@ class ReiseRepository extends EntityRepository {
 		return $result;
 	}
 
+
+	public function findRandom($limit = null) {
+		$em = $this->getEntityManager();
+		$config = $em->getConfiguration();
+ 		$config->addCustomNumericFunction('RAND','\Webmasters\Doctrine\ORM\Query\RandFunction');
+
+		$queryBuilder = $em
+						->createQueryBuilder()
+						->select('r, RAND() AS rnd')
+						->from(Reise::class, 'r')
+						->where('r.beginn > :today')
+						->orderBy('rnd');
+
+		if(!empty($limit)) {
+			$queryBuilder->setMaxResults($limit);
+		}
+
+		$parameters['today'] = date('Y-m-d');
+
+		$queryBuilder->setParameters($parameters);
+		$result = $queryBuilder->getQuery()->getResult();
+
+		return array_column($result, 0);
+		
+	}
 
 }
