@@ -5,11 +5,15 @@
 	<div style="float: left; width: 65%;">
 			<h1 style="text-align: center"><?= $reise->getTitel();?></h1>
 
-			<a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg" >
-			 		<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+			<a href="<?= $reise->getDetailbildPfad() ?>" >
+			 		<img src="<?= $reise->getDetailbildPfad() ?>"/>
 			</a>
 		<p>
 			<?= $reise->getBeschreibung()?>
+
+			<p>
+				<a type="button" href="?controller=reise&action=buchen&id=<?= $reise->getID(); ?>">Jetzt buchen! </a>
+			</p>
 		</p>
 
 	</div>

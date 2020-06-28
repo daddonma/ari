@@ -18,8 +18,6 @@
           <div class="zeitraum">
              <?= $reise->getBeginn()->format('d.m.Y') ?> - <?= $reise->getEnde()->format('d.m.Y') ?>
           </div>
-         <!--<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>-->
-         <img src="2.jpg"/>
         </div>
         <div class="body">
           <div class="kategorie"><?= $reise->getKategorie()->getName()?></div>

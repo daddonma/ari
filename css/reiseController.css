@@ -1,3 +1,11 @@
+.reise-card-content a[href*="detail"] {
+  float: left;
+}
+
+.reise-card-content a[href*="buchen"] {
+  float: right;
+}
+
 .reise-card-content {
   position: relative;
   z-index: 1;

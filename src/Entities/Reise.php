@@ -148,6 +148,19 @@ class Reise extends AbstractEntity {
 		return $this->detailbild;
 	}
 
+	public function getDetailbildPfad() {
+
+		$uploadsDir = UPLOADS_URL;
+		$vorschaubild = $this->getDetailbild();
+		$id = $this->getID();
+
+		$pfad = "{$uploadsDir}/reisen/{$id}/detail/{$vorschaubild}";
+
+		$pfad = str_replace('\\', '/', $pfad);
+
+		return $pfad;
+	}
+
 	public function setDetailbild(string $detailbild) {
 		$this->detailbild = $detailbild;
 	}
@@ -165,8 +178,6 @@ class Reise extends AbstractEntity {
 		$pfad = "{$uploadsDir}/reisen/{$id}/vorschau/{$vorschaubild}";
 
 		$pfad = str_replace('\\', '/', $pfad);
-
-//$pfad = str_replace('/', '\\', $pfad);
 
 		return $pfad;
 	}
