@@ -191,7 +191,7 @@ abstract class AbstractBase
         exit;
     }
 
-    protected function redirect($action = null, $controller = null, bool $backend = false, $params = array())
+    protected function redirect($action = null, $controller = null, $backend = false, $params = array())
     {
 
 
@@ -303,7 +303,11 @@ abstract class AbstractBase
 
         $searchStr = $this->getSearchStr();
 
-        $controllerName = $_GET['controller'] ?? 'index';
+        if(isset($_GET['controller']))
+            $controllerName = $_GET['controller'];
+        else
+            $controllerName = 'index';
+
         $searchSuggestions = $this->getSearchSuggestions();
 
         require_once $this->basePath . '/templates/layout.tpl.php';

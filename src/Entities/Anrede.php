@@ -28,7 +28,7 @@ class Anrede extends AbstractEntity {
 	 */
 	protected $personen;
 
-	public function __construct(array $data = []) {
+	public function __construct($data = []) {
 		$this->mapFromArray($data);
 
 		$this->personen = new ArrayCollection;
@@ -48,7 +48,7 @@ class Anrede extends AbstractEntity {
 		return $this->bezeichnung;
 	}
 
-	public function setBezeichnung(string $bezeichnung) {
+	public function setBezeichnung($bezeichnung) {
 		$this->bezeichnung = $bezeichnung;
 	}
 
@@ -56,7 +56,7 @@ class Anrede extends AbstractEntity {
 		return $this->personen;
 	}
 
-	public function addPerson(Person $person) {
+	public function addPerson($person) {
 		$this->personen->add($person);
 	}
 }

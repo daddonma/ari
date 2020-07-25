@@ -1,4 +1,4 @@
-# doctrine-extensions for PHP 7.1+
+# doctrine-extensions
 
 ## Webmasters Doctrine Extensions
 
@@ -39,9 +39,5 @@ $em = $bootstrap->getEm();
 
 ```
 
-### Changelog
-#### 2019-09-08
-Now supporting PHP 7.3 (Doctrine 2.6.3 or above)
-
-#### 2019-06-08
-Changed method name validateData to executeValidation, to prevent collisions with an attribute $data in the validated class (thx Peter R).
+### Idea
+[Jan Teriete](https://plus.google.com/106660436858103395374?rel=author)

@@ -12,8 +12,17 @@ session_start();
 // Path to our index.php
 $basePath = dirname(__FILE__);
 
-$controller = $_GET['controller'] ?? 'index';
-$action = $_GET['action'] ?? 'index';
+if(isset( $_GET['controller'])) {
+	$controller = $_GET['controller'];
+} else {
+	$controller = 'index';
+}
+
+if(isset( $_GET['action'])) {
+	$action = $_GET['action'];
+} else {
+	$action = 'index';
+}
 
 $controllerNamespace = 'Controllers\\Backend\\';
 $controllerName = $controllerNamespace . ucfirst($controller) . 'Controller';

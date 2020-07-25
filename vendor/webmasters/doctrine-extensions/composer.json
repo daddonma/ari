@@ -14,12 +14,13 @@
     "authors": [
         {
             "name": "Jan Teriete",
-            "email": "leisure.larry@habmalnefrage.de"
+            "email": "leisure.larry@habmalnefrage.de",
+            "homepage": "http://blog-das-oertchen.de/"
         }
     ],
     "require": {
-        "php": ">=7.1",
-        "doctrine/orm": ">=2.6.3,<2.7-dev"
+        "php": ">=5.4",
+        "doctrine/orm": ">=2.5.0,<2.6-dev"
     },
     "autoload": {
         "psr-0": { "Webmasters": "lib/" }

@@ -10,5 +10,10 @@ return array(
     'Validators' => array($baseDir . '/src'),
     'Repositories' => array($baseDir . '/src'),
     'Entities' => array($baseDir . '/src'),
+    'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
+    'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
+    'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
+    'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
+    'Doctrine\\Common\\' => array($vendorDir . '/doctrine/common/lib'),
     'Controllers' => array($baseDir . '/src'),
 );

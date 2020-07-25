@@ -29,7 +29,7 @@ class Benutzer extends AbstractEntity {
 	protected $passwortHash;
 
 
-	public function __construct(array $data = []) {
+	public function __construct($data = []) {
 		$this->mapFromArray($data);
 	}
 
@@ -47,7 +47,7 @@ class Benutzer extends AbstractEntity {
 		return $this->benutzername;
 	}
 
-	public function setBenutzername(string $benutzername) {
+	public function setBenutzername($benutzername) {
 		$this->benutzername = $benutzername;
 	}
 
@@ -56,11 +56,11 @@ class Benutzer extends AbstractEntity {
 		return $this->passwortHash;
 	}
 
-	public function setPasswortHash(string $passwortHash) {
+	public function setPasswortHash($passwortHash) {
 		$this->passwortHash = $passwortHash;
 	}
 
-	public function setPasswort(string $passwort) {
+	public function setPasswort($passwort) {
 		$this->setPasswortHash(sha1($passwort));
 	}
 }

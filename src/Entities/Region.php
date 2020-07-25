@@ -28,7 +28,7 @@ class Region extends AbstractEntity {
 	 */
 	protected $reisen;
 
-	public function __construct(array $data = []) {
+	public function __construct($data = []) {
 		$this->mapFromArray($data);
 
 		$this->reisen = new ArrayCollection;
@@ -48,7 +48,7 @@ class Region extends AbstractEntity {
 		return $this->name;
 	}
 
-	public function setName(string $name) {
+	public function setName($name) {
 		$this->name = $name;
 	}
 
@@ -56,7 +56,7 @@ class Region extends AbstractEntity {
 		return $this->reisen;
 	}
 	
-	public function addReise(Reise $reise) {
+	public function addReise($reise) {
 		$this->reisen->add($reise);
 	}
 }

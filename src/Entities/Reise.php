@@ -75,7 +75,7 @@ class Reise extends AbstractEntity {
 	 */
 	protected $buchungen;
 
-	public function __construct(array $data = []) {
+	public function __construct($data = []) {
 
 		$this->mapFromArray($data);
 
@@ -100,7 +100,7 @@ class Reise extends AbstractEntity {
 		return $this->titel;
 	}
 
-	public function setTitel(string $titel) {
+	public function setTitel($titel) {
 		$this->titel = $titel;
 	}
 
@@ -132,7 +132,7 @@ class Reise extends AbstractEntity {
 		return $this->beschreibung;
 	}	
 
-	public function setBeschreibung(string $beschreibung) {
+	public function setBeschreibung($beschreibung) {
 		$this->beschreibung = $beschreibung;
 	}
 
@@ -140,7 +140,7 @@ class Reise extends AbstractEntity {
 		return $this->kurzbeschreibung;
 	}
 
-	public function setKurzbeschreibung(string $kurzbeschreibung) {
+	public function setKurzbeschreibung($kurzbeschreibung) {
 		$this->kurzbeschreibung = $kurzbeschreibung;
 	}
 
@@ -161,7 +161,7 @@ class Reise extends AbstractEntity {
 		return $pfad;
 	}
 
-	public function setDetailbild(string $detailbild) {
+	public function setDetailbild($detailbild) {
 		$this->detailbild = $detailbild;
 	}
 
@@ -182,7 +182,7 @@ class Reise extends AbstractEntity {
 		return $pfad;
 	}
 
-	public function setVorschaubild(string $vorschaubild) {
+	public function setVorschaubild($vorschaubild) {
 		$this->vorschaubild = $vorschaubild;
 	}
 
@@ -191,7 +191,7 @@ class Reise extends AbstractEntity {
 		return $this->kategorie;
 	}
 
-	public function setKategorie(Kategorie $kategorie) {
+	public function setKategorie($kategorie) {
 		$this->kategorie = $kategorie;
 	}
 
@@ -199,7 +199,7 @@ class Reise extends AbstractEntity {
 		return $this->region;
 	}
 
-	public function setRegion(Region $region) {
+	public function setRegion($region) {
 		$this->region = $region;
 	}
 
@@ -207,7 +207,7 @@ class Reise extends AbstractEntity {
 		return $this->buchungen;
 	}
 
-	public function addBuchung(Buchung $buchung) {
+	public function addBuchung($buchung) {
 		$this->buchungen->add($buchung);
 	}
 

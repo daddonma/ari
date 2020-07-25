@@ -55,7 +55,7 @@ class Buchung extends AbstractEntity {
 		return $this->personenanzahl;
 	}
 
-	public function setPersonenanzahl(int $personenanzahl) {
+	public function setPersonenanzahl($personenanzahl) {
 		$this->personenanzahl = $personenanzahl;
 	}
 
@@ -67,7 +67,7 @@ class Buchung extends AbstractEntity {
 		return $this->reise;
 	}
 
-	public function setReise(Reise $reise) {
+	public function setReise($reise) {
 		$this->reise = $reise;
 	}
 
@@ -75,7 +75,7 @@ class Buchung extends AbstractEntity {
 		return $this->person;
 	}
 
-	public function setPerson(Person $person) {
+	public function setPerson($person) {
 		$this->person = $person;
 	}
 

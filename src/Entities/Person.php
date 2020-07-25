@@ -81,7 +81,7 @@ class Person extends AbstractEntity {
 	protected $buchungen;
 
 	
-	public function __construct(array $data = []) {
+	public function __construct($data = []) {
 		$this->mapFromArray($data);
 
 		$this->buchungen = new ArrayCollection;
@@ -101,7 +101,7 @@ class Person extends AbstractEntity {
 		return $this->anrede;
 	}
 
-	public function setAnrede(Anrede $anrede) {
+	public function setAnrede($anrede) {
 		$this->anrede = $anrede;
 	}
 
@@ -119,7 +119,7 @@ class Person extends AbstractEntity {
 		return $this->vorname;
 	}
 
-	public function setVorname(string $vorname) {
+	public function setVorname($vorname) {
 		$this->vorname = $vorname;
 	}
 
@@ -127,7 +127,7 @@ class Person extends AbstractEntity {
 		return $this->nachname;
 	}
 
-	public function setNachname(string $nachname) {
+	public function setNachname($nachname) {
 		$this->nachname = $nachname;
 	}
 
@@ -143,7 +143,7 @@ class Person extends AbstractEntity {
 		return $this->strasse;
 	}
 
-	public function setStrasse(string $strasse) {
+	public function setStrasse($strasse) {
 		$this->strasse = $strasse;
 	}
 
@@ -151,7 +151,7 @@ class Person extends AbstractEntity {
 		return $this->hausnummer;
 	}
 
-	public function setHausnummer(string $hausnummer) {
+	public function setHausnummer($hausnummer) {
 		$this->hausnummer = $hausnummer;
 	}
 
@@ -159,7 +159,7 @@ class Person extends AbstractEntity {
 		return $this->plz;
 	}
 
-	public function setPlz(string $plz) {
+	public function setPlz($plz) {
 		$this->plz = $plz;
 	}
 
@@ -167,7 +167,7 @@ class Person extends AbstractEntity {
 		return $this->ort;
 	}
 
-	public function setOrt(string $ort) {
+	public function setOrt($ort) {
 		$this->ort = $ort;
 	}
 
@@ -175,7 +175,7 @@ class Person extends AbstractEntity {
 		return $this->telefonnummer;
 	}
 
-	public function setTelefonnummer(string $telefonnummer) {
+	public function setTelefonnummer($telefonnummer) {
 		$this->telefonnummer = $telefonnummer;
 	}
 
@@ -183,7 +183,7 @@ class Person extends AbstractEntity {
 		return $this->email;
 	}
 
-	public function setEmail(string $email) {
+	public function setEmail($email) {
 		$this->email = $email;
 	}
 
@@ -192,7 +192,7 @@ class Person extends AbstractEntity {
 	}
 
 
-	public function addBuchung(Buchung $buchung) {
+	public function addBuchung($buchung) {
 		$this->buchungen->add($buchung);
 	}
 }
