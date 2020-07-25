@@ -15,7 +15,7 @@ class HtmlHelper {
 
 		if($showEmpty) {
 			$html = "<option value=''>-- Anrede wählen --</option>";
-		}else {
+		} else {
 			$html = "";
 		}
 

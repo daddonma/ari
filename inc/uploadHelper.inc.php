@@ -10,7 +10,8 @@ class UploadHelper {
 		$directory = "{$uploadsDir}/{$directory}";
 
 		//Der Pfad existiert noch nicht => diesen anlegen
-		if (!file_exists($directory)) mkdir($directory, 0777, true);
+		if (!file_exists($directory)) 
+			mkdir($directory, 0777, true);
 
 		$file = "{$directory}/{$filename}";
 	
