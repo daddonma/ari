@@ -211,10 +211,10 @@ abstract class AbstractBase
         }
 
         if($backend) {
-            $target = '/ari/admin'.$to;
+            $target = '/admin'.$to;
         }
         else {
-            $target = '/ari'.$to;
+            $target = $to;
         }
             
 
