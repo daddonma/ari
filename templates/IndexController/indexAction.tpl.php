@@ -20,7 +20,7 @@
 </noscript>
 
 <div class="clearfix">
-	<div style="float: left; width: 50%">
+	<div id="welcome">
 		<h2>Herzlich Willkommen</h2> 
 		<p>
 			Wir freuen uns bei ARI begrüßen zu dürfen.
@@ -33,7 +33,7 @@
 		</p>
 	</div>
 
-	<div id="teaserbox" style="float: right; width: 50%; box-sizing: border-box; position: relative">
+	<div id="teaserbox">
 		
 		<div id="teaser-container">
 			<?php foreach($reisen AS $reise): ?><div  class="teaser <?= 'ID' . $reise->getId()?>" style="background: url('<?= $reise->getVorschaubildPfad()?>') no-repeat left center;

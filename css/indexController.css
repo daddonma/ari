@@ -1,0 +1,27 @@
+#welcome {
+	width: 100%;
+}
+
+#teaserbox {
+	width: 100%;
+	box-sizing: border-box; 
+	position: relative;
+	padding-top: 2rem;
+
+}
+
+@media (min-width: 992px)  {
+
+	#welcome  {
+		float: left;
+		width: 50%
+	}
+
+	#teaserbox {
+		float: right; 
+		width: 50%; 
+		box-sizing: border-box; 
+		position: relative;
+		padding: 0;
+	}
+}
