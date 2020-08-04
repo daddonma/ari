@@ -216,7 +216,11 @@ abstract class AbstractBase
         else {
             $target = $to;
         }
-            
+
+        $target = BASE_URL.$target;
+
+        $target = str_replace('\\', '/', $target);
+      	//print_r($target);Die;
 
         header('Location: ' . $target);
         exit;

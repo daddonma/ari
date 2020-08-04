@@ -31,7 +31,7 @@ if (class_exists($controllerName)) {
     $requestController = new $controllerName($basePath, $em);
     $requestController->run($action);
 } else {
-    $requestController = new Controllers\IndexController($basePath, $em);
+    $requestController = new Controllers\Backend\IndexController($basePath, $em);
     $requestController->render404();
 }
 
