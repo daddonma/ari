@@ -14,7 +14,8 @@
   <?php foreach($reisen AS $reise): ?>
   <div class="reise-card">
       <div class="reise-card-content">
-        <div class="header">
+        <div class="header" style="background: url('<?= $reise->getVorschaubildPfad()?>') no-repeat left center;
+      background-size: cover;">
           <div class="zeitraum">
              <?= $reise->getBeginn()->format('d.m.Y') ?> - <?= $reise->getEnde()->format('d.m.Y') ?>
           </div>
