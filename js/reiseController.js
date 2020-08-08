@@ -20,10 +20,12 @@
 
 	const checkIfAllRequiredAccepted = () => $$('input.required[type="checkbox"]').filter( checkbox => checkbox.checked != true).length === 0
 
+	if(action === "uebersicht") {
+		$('#formFilterKategorie select').on("change", function(element) {
+			element.target.closest('form').submit();
+		});
+	}
 	
-	$('#formFilterKategorie select').on("change", function(element) {
-		element.target.closest('form').submit();
-	});
 
 	if(action == "buchen") {
 		handleRequiredCheckboxes();

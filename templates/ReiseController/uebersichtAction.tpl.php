@@ -3,6 +3,10 @@
 <nav id="navKategorie" class="filterKategorie" onclick="return true" style="margin-bottom: 5px" style1="display: none">
     <ul>
 
+      <li class="<?php if(empty($kategorieID)): ?> active<?php endif; ?>">
+         <a href="?controller=reise&action=uebersicht&kategorieID=0">Alle Kategorien</a>
+
+      </li>
       <?php foreach($kategorien AS $kategorie): ?>
         <li class="<?php if($kategorie->getID() == $kategorieID) echo active ?>">
             <a href="?controller=reise&action=uebersicht&kategorieID=<?= $kategorie->getID()?>"><?= $kategorie->getName()?></a>
@@ -15,7 +19,7 @@
 <!-- Formular für mobile devices-->
 <form id="formFilterKategorie" action="?controller=reise&action=uebersicht" method="POST" class="filterKategorie">
   <select name="kategorieID">
-    <option value=" ">Kategorie filtern</option>
+    <option value="" <?php if(empty($kategorie)): ?> selected <?php endif; ?>>Alle Kategorien</option>
     <?php foreach($kategorien AS $kategorie): ?>
         <option value="<?= $kategorie->getID()?>" <?php if($kategorie->getID() == $kategorieID):?> selected <?php endif; ?>>
           <?= $kategorie->getName()?>
