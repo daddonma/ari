@@ -21,7 +21,7 @@
   background: #000000;
   height: 400px;
   overflow: hidden; 
-
+  background-size: cover;
 }
 
 .reise-card-content .header .zeitraum {
@@ -32,11 +32,7 @@
   color: white;
   padding: 2px;
 }
-.reise-card-content .header img {
-  display: block;
-  width: 120%;
-  transition: all 0.3s linear 0s;
-}
+
 .reise-card-content .body {
   position: absolute;
   bottom: 0;
@@ -46,6 +42,7 @@
   box-sizing: border-box;
   min-height: 250px;
 }
+
 .reise-card-content .body .kategorie {
   position: absolute;
   top: -34px;
@@ -90,11 +87,13 @@
 
 
 @media (max-width: 768px) {
+
     .reise-container .reise-card {
-      width: 75%;
+      width: 63%;
       margin: 0;
       padding: 0;
     }
+
 }
 
 .body .content-footer {
@@ -166,8 +165,6 @@
 #navKategorie {
     width: 100%; /* wegen position:absolute */
     padding: 0;
-    z-index: 1; /* steht VOR Suchfeld (wichtig für Dropdown-Menü für Mobilgeräte) */
-    
     border-color: #bbb;
     border-width: 1px;
     border-style: solid none;
@@ -215,4 +212,27 @@
 #navKategorie ul li a:hover {
     color: black;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+.filterKategorie {
+  margin-bottom: 5px;
+}
+
+#formFilterKategorie {
+  display: none;
+}
+
+#formFilterKategorie select {
+  width: 100%;
+}
+@media (max-width: 768px) {
+
+    #navKategorie {
+      display: none;
+    }
+
+    #formFilterKategorie {
+      display: block;
+    }
+
 }

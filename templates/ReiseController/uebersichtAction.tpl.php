@@ -1,4 +1,6 @@
-<nav id="navKategorie" onclick="return true">
+
+
+<nav id="navKategorie" class="filterKategorie" onclick="return true" style="margin-bottom: 5px" style1="display: none">
     <ul>
 
       <?php foreach($kategorien AS $kategorie): ?>
@@ -10,12 +12,25 @@
     </ul>
 </nav>
 
+<!-- Formular für mobile devices-->
+<form id="formFilterKategorie" action="?controller=reise&action=uebersicht" method="POST" class="filterKategorie">
+  <select name="kategorieID">
+    <option value=" ">Kategorie filtern</option>
+    <?php foreach($kategorien AS $kategorie): ?>
+        <option value="<?= $kategorie->getID()?>" <?php if($kategorie->getID() == $kategorieID):?> selected <?php endif; ?>>
+          <?= $kategorie->getName()?>
+        </option>
+    <?php endforeach; ?>
+  </select>
+</form>
+
+
+
 <div class="reise-container clearfix">
   <?php foreach($reisen AS $reise): ?>
   <div class="reise-card">
       <div class="reise-card-content">
-        <div class="header" style="background: url('<?= $reise->getVorschaubildPfad()?>') no-repeat left center;
-      background-size: cover;">
+        <div class="header" style="background: url('<?= $reise->getVorschaubildPfad()?>') no-repeat left center;">
           <div class="zeitraum">
              <?= $reise->getBeginn()->format('d.m.Y') ?> - <?= $reise->getEnde()->format('d.m.Y') ?>
           </div>

@@ -179,6 +179,15 @@ p {
     padding: 1.5rem;
 }
 
+@media (max-width: 768px) {
+
+    #content {
+        padding: 0.75rem;
+    }
+
+}
+
+
 #content article {
     margin-bottom: 1.5rem;
 }

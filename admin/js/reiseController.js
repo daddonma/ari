@@ -14,7 +14,7 @@
 	  	
 	}
 
-
-
 	initQuillEditor('beschreibung');
+
+
 }
