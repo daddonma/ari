@@ -120,6 +120,16 @@
 }
 
 #buchung input.person, #buchung select.person {
+  width: 75%;
+}
+
+#buchung label.person {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/*
+#buchung input.person, #buchung select.person {
  
   display: block; 
   width: 50%;
@@ -132,6 +142,19 @@
   padding: .25rem;
 }
 
+@media (max-width: 768px) {
+
+  #buchung label {
+    float: none;
+    width: 100%;
+  }
+
+  #buchung input, #buchung select {
+    float: none;
+    width: 100%;
+  }
+}
+*/
 
 .buchungUebersichtTable {
   width: 100%;
@@ -236,3 +259,4 @@
     }
 
 }
+

@@ -27,6 +27,10 @@
 
             <p>
               <fieldset>
+
+                <div id="errorRequiredCheckboxes" class="flashMessage error hidden">
+                  Zum Fortfahren müssen Sie die Datenschutzerklärung und die Reisebedingungen akzeptieren.
+                </div>
                 <input class="required" type="checkbox" id="datenschutz" <?php if(!empty($errorArray)) echo 'checked' ?> >
                 <label for="datenschutz">Die <a href="#">Datenschutzerklärung</a> habe ich gelesen und stimme dieser zu.</label>
                 <br><br>
@@ -46,7 +50,7 @@
           <fieldset>
             <legend><?= $reise->getTitel()?></legend>
             <label for="personenanzahl">Für wieviele Personen möchten Sie die Reise buchen?</label><br>
-            <input type="number" id="personenanzahl" min=1 name="personenanzahl"><br>
+            <input type="number" id="personenanzahl" min=1 name="personenanzahl" placeholder="Anzahl"><br>
 
           </fieldset>
 

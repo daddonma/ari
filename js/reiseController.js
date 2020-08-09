@@ -9,12 +9,21 @@
 
 				$$('li.tab').forEach(tab => tab.classList.remove('disabled'));
 				$$('button.tab-next').forEach(button => button.classList.remove('disabled'));
-		
+				
 			} else {
 				$$('li.tab').forEach(tab => tab.classList.add('disabled'));
 				$$('button.tab-next').forEach(button => button.classList.add('disabled'));
+
 			}
 
+		});
+
+		$$('button.tab-next, li.tab').on("click", function() {
+			if(checkIfAllRequiredAccepted()) {
+				$('#errorRequiredCheckboxes').classList.add('hidden');
+			} else {
+				$('#errorRequiredCheckboxes').classList.remove('hidden');
+			}
 		});
 	};
 
