@@ -28,8 +28,11 @@
   </select>
 </form>
 
-
-
+  <?php if(empty($reisen)): ?>
+  <div class="flashMessage error">
+    Es wurde keine Reise gefunden.
+  </div>
+<?php endif; ?>
 <div class="reise-container clearfix">
   <?php foreach($reisen AS $reise): ?>
   <div class="reise-card">

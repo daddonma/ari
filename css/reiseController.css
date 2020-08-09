@@ -83,6 +83,7 @@
   box-sizing: border-box;
   float: left;
   margin: .75rem 0 .75rem 0;
+
 }
 
 
@@ -90,8 +91,9 @@
 
     .reise-container .reise-card {
       width: 63%;
-      margin: 0;
+      border: 1px solid black;
       padding: 0;
+      margin: 0 0 0.75rem 0;
     }
 
 }
@@ -127,34 +129,6 @@
   display: block;
   margin-bottom: 0.25rem;
 }
-
-/*
-#buchung input.person, #buchung select.person {
- 
-  display: block; 
-  width: 50%;
-}
-
-#buchung label.person {
-  float: left;
-  width: 10%;
-
-  padding: .25rem;
-}
-
-@media (max-width: 768px) {
-
-  #buchung label {
-    float: none;
-    width: 100%;
-  }
-
-  #buchung input, #buchung select {
-    float: none;
-    width: 100%;
-  }
-}
-*/
 
 .buchungUebersichtTable {
   width: 100%;
