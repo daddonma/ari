@@ -66,6 +66,10 @@ p {
     display: none;
 }
 
+.blocksatz {
+   text-align: justify; 
+}
+
 #header {
 
     height: var(--header_height);
@@ -87,7 +91,7 @@ p {
 }
 
 #header h1 {
-    padding-top: 0.5rem;
+   padding-top: 5rem;
    font-size: var(--title_heading_font_size); 
 }
 
@@ -96,8 +100,13 @@ p {
 }
 
 @media (max-width: 750px) {
+
+    #header h1 {
+        padding-top: 0.5rem;
+    }
+
     #header h2 {
-    display: none;
+        display: none;
     }
 }
 
