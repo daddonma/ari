@@ -20,16 +20,19 @@
 </noscript>
 
 <div class="clearfix">
-	<div id="welcome">
+	<div id="welcome" class="blocksatz">
 		<h2>Herzlich Willkommen</h2> 
+
 		<p>
-			Wir freuen uns bei ARI begrüßen zu dürfen.
+			Wir freuen uns, Sie bei <strong>ARI</strong> begrüßen zu dürfen.
 		</p>
+
 		<p>
-			Ihrem spezialisten für Internationale Abenteuerreisen
+			Ihrem Spezialisten für Internationale Abenteuerreisen
 		</p>
+
 		<p>
-			Bei jeglichen Fragen stehe wir Ihnen über unsere Kontaktseite gerne zur Verfügung.
+			At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 		</p>
 	</div>
 

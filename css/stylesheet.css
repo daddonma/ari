@@ -70,6 +70,10 @@ p {
    text-align: justify; 
 }
 
+li.active {
+    background-color: orange!important
+}
+
 #header {
 
     height: var(--header_height);
@@ -213,6 +217,15 @@ p {
     margin: 0 auto;
     width: 40%;
 }
+
+@media (max-width: 768px) {
+
+    #header #search  {
+        width: 80%;
+    }
+
+}
+
 
 
 #header #search input[type="search"] {

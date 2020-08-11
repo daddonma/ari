@@ -1,9 +1,9 @@
 
 
-<nav id="navKategorie" class="filterKategorie" onclick="return true" style="margin-bottom: 5px" style1="display: none">
+<nav id="navKategorie" class="filterKategorie" onclick="return true">
     <ul>
 
-      <li class="<?php if(empty($kategorieID)): ?> active<?php endif; ?>">
+      <li class="<?php if(empty($kategorieID)): ?>active<?php endif; ?>">
          <a href="?controller=reise&action=uebersicht&kategorieID=0">Alle Kategorien</a>
 
       </li>
