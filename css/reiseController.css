@@ -231,3 +231,56 @@
 
 }
 
+
+/* Detailseite */
+#reise-content {
+  float: left; 
+  width: 65%;
+}
+
+#reise-content img {
+  border: 1px solid #ddd; 
+  border-radius: 4px;  
+  padding: 5px; 
+  width: 250px; 
+  margin: auto;
+}
+
+/* Add a hover effect (blue shadow) */
+#reise-content img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+#reise-info {
+  float: right; 
+  width: 33%; 
+  padding-top: 10px;
+}
+
+#reise-info .header {
+  min-height: 1.5rem; 
+  border: 1px solid grey; 
+  text-align: center; 
+  padding: .5rem; 
+  color: black; 
+  background-color: var(--nav_bg_color_2);
+}
+
+#reise-info .content {
+  min-height: 5rem; 
+  border: 1px solid grey; 
+}
+
+@media (max-width: 768px) {
+
+    #reise-content {
+      float: left; 
+      width: 100%;
+    }
+
+    #reise-info {
+       width: 100%; 
+
+    }
+
+}
