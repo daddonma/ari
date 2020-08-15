@@ -1,15 +1,15 @@
 <nav>
     <ul>
         <li>
-            <a href="#">Kontakt</a>
+            <a href="?controller=kontakt">Kontakt</a>
         </li>
         
         <li>
-            <a href="#">Datenschutz</a>
+            <a href="?controller=datenschutz">Datenschutz</a>
         </li>
         
         <li>
-            <a href="#">Impressum</a>
+            <a href="?controller=impressum">Impressum</a>
         </li>
     </ul>
 </nav>

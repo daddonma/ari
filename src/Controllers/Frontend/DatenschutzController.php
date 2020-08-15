@@ -2,7 +2,7 @@
 
 namespace Controllers\Frontend;
 
-class AboutUsController extends AbstractBase {
+class DatenschutzController extends AbstractBase {
 
 	public function indexAction() {
 		

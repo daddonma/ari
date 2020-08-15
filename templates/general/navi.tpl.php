@@ -13,12 +13,12 @@
             <a href="?controller=reise">Aktuelle Reiseangebote</a>
         </li>
         
-        <li>
-            <a href="#">Kontakt</a>
+        <li class="<?php if($controllerName === 'kontakt'): ?>active<?php endif; ?>">
+            <a href="?controller=kontakt">Kontakt</a>
         </li>
         
-        <li>
-            <a href="#">Impressum</a>
+        <li class="<?php if($controllerName === 'impressum'): ?>active<?php endif; ?>">
+            <a href="?controller=impressum">Impressum</a>
         </li>
     </ul>
 </nav>

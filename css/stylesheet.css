@@ -27,8 +27,8 @@
     --nav_bg_color_2: #8bbef1;
     --nav_bg_color_1: #e9eaeb;
 
-    --button_color: #add8e6;
-    --button_color_hover: #ffb732;
+    --button_color: #44c767;
+    --button_color_hover: #8fbc8f;
 
 }
 
@@ -246,18 +246,24 @@ li.active {
     padding: .25em .35em;
 }
 
-input[type="button"], a[type="button"] {
-    font: inherit;
-    min-width: 7.5em;
 
-    border-radius: 5px;
+input[type=submit], input[type=button], a[type=button], button {
+    margin-top: .75rem;
+    box-shadow: 0px 1px 0px 0px #3dc21b;
     background-color: var(--button_color);
-    border: 2px solid black;
-    padding: 2px;
+    border-radius:6px;
+    border:1px solid #18ab29;
+
+    cursor:pointer;
+    color:#ffffff;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    
 }
 
-input[type="button"]:hover, a[type="button"]:hover{
-    background-color: var(--button_color_hover);
+input[type=submit]:hover, input[type=button]:hover, a[type=button]:hover, button:hover {
+     background-color: var(--button_color_hover);
 }
 
 @media (max-width: 750px) {
@@ -289,7 +295,7 @@ input[type="button"]:hover, a[type="button"]:hover{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* steht VOR Suchfeld (wichtig für Dropdown-Menü für Mobilgeräte) */
+    z-index: 999;
     
     border-color: #bbb;
     border-width: 1px;
@@ -493,4 +499,15 @@ input[type="button"]:hover, a[type="button"]:hover{
 }
 #autocomplete li:hover {
   background: yellow;
+}
+
+.box-container {
+
+    padding: 0 0 15px 15px; 
+    border: 2px solid grey; 
+    min-height: 100px; 
+    box-shadow: 5px 10px #888888; 
+    background-color: whitesmoke;
+    
+    margin: .75rem 5rem .75rem 5rem;
 }

@@ -24,15 +24,16 @@
 		<h2>Herzlich Willkommen</h2> 
 
 		<p>
-			Wir freuen uns, Sie bei <strong>ARI</strong> begrüßen zu dürfen.
+			Wir freuen uns, Sie bei <strong>ARI</strong> begrüßen zu dürfen.<br>
+			<strong>ARI</strong> steht für <b>A</b>benteuer<b>R</b>eisen <b>I</b>nternational
 		</p>
 
 		<p>
-			Ihrem Spezialisten für Internationale Abenteuerreisen
+			Wir sind Ihr spezialist für Internationale Abenteuerreisen
 		</p>
 
 		<p>
-			At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 		</p>
 	</div>
 
