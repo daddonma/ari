@@ -27,7 +27,7 @@
     --nav_bg_color_2: #8bbef1;
     --nav_bg_color_1: #e9eaeb;
 
-    --button_color: #44c767;
+    --button_color: rgba(46, 49, 49, 0.7);
     --button_color_hover: #8fbc8f;
 
 }
@@ -249,10 +249,10 @@ li.active {
 
 input[type=submit], input[type=button], a[type=button], button {
     margin-top: .75rem;
-    box-shadow: 0px 1px 0px 0px #3dc21b;
+    box-shadow: 0px 1px 0px 0px grey;
     background-color: var(--button_color);
     border-radius:6px;
-    border:1px solid #18ab29;
+    border:1px solid grey;
 
     cursor:pointer;
     color:#ffffff;
