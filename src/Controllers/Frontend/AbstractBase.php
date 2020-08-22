@@ -11,6 +11,7 @@ abstract class AbstractBase extends \Controllers\AbstractBase{
 
 		parent::__construct($basePath, $em);
 
+		$this->addCss("css\\main.css");
 		$this->addCss("css\\flash_messages.css");
         $this->addCss("css\\icons.css");
 

@@ -107,28 +107,7 @@
 }
 
 
-#buchung input[type="text"], #buchung input[type="number"], 
-#buchung input[type="date"], #buchung input[type="email"], #buchung input[type="tel"],
-#buchung select {
-  color: #444;
-  background-color: rgba(255, 255, 255, 0.85);
-    
-  border: 1px solid #ccc;
-  border-radius: 5px;
-    
-  height: 2em;
-  margin-bottom: .50rem;
-  padding: .25em .35em;
-}
 
-#buchung input.person, #buchung select.person {
-  width: 75%;
-}
-
-#buchung label.person {
-  display: block;
-  margin-bottom: 0.25rem;
-}
 
 .buchungUebersichtTable {
   width: 100%;

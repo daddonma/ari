@@ -49,7 +49,7 @@
 
           <fieldset>
             <legend><?= $reise->getTitel()?></legend>
-            <label for="personenanzahl">Für wieviele Personen möchten Sie die Reise buchen?</label><br>
+            <label for="personenanzahl" class="form-label">Für wieviele Personen möchten Sie die Reise buchen?</label><br>
             <input type="number" id="personenanzahl" min=1 name="personenanzahl" placeholder="Anzahl"><br>
 
           </fieldset>
@@ -57,42 +57,42 @@
           <fieldset>
             <legend>Informationen zu Ihrer Person</legend>
             
-            <label for="vorname" class="person">Anrede</label>
+            <label for="vorname" class="form-label">Anrede</label>
             <select name="anredeID" class=person>
               <?= $anredeOptionList ?>
             </select>
 
-            <label for="titel" class="person">Titel</label>
+            <label for="titel" class="form-label">Titel</label>
             <input type="text" id="titel" name="titel" class="person" placeholder="Titel" value=<?= $person->getTitel()?>>
 
-            <label for="vorname" class="person">Vorname</label>
+            <label for="vorname" class="form-label">Vorname</label>
             <input type="text" id="vorname" name="vorname" class="person" placeholder="Ihr Vorname" value=<?= $person->getVorname()?>>
             
-            <label for="nachname" class="person">Nachname</label>
+            <label for="nachname" class="form-label">Nachname</label>
             <input type="text" id="nachname" name="nachname" class="person" placeholder="Ihr Nachname" value="<?= $person->getNachname()?>">
             
-            <label for="geburtsdatum" class="person">Geburtsdatum</label>
+            <label for="geburtsdatum" class="form-label">Geburtsdatum</label>
             <input type="date" id="geburtsdatum" name="geburtsdatum" class="person" value="<?= $person->getGeburtsdatum()->format('Y-m-d')?>">
 
-            <label for="strasse" class="person">Straße</label>
+            <label for="strasse" class="form-label">Straße</label>
             <input type="text" id="strasse" name="strasse" class="person" placeholder="Ihre Straße" value="<?= $person->getStrasse()?>">
 
-            <label for="hausnummer" class="person">Hausnummer</label>
+            <label for="hausnummer" class="form-label">Hausnummer</label>
             <input type="text" id="hausnummer" name="hausnummer" class="person" maxlength=5 placeholder="Hausnummer" value="<?= $person->getHausnummer()?>">
 
-            <label for="plz" class="person">Postleitzahl</label>
+            <label for="plz" class="form-label">Postleitzahl</label>
             <input type="text" id="plz" name="plz" class="person" maxlength=5 placeholder="Postleitzahl" value="<?= $person->getPlz()?>">
 
-            <label for="ort" class="person">Ort</label>
+            <label for="ort" class="form-label">Ort</label>
             <input type="text" id="ort" name="ort" class="person" placeholder="Wohnort" value="<?= $person->getOrt()?>">
 
           </fieldset>
 
           <fieldset>
             <legend>Weitere Kontaktmöglichkeiten</legend>
-            <label for="email" class="person">E-Mail</label>
+            <label for="email" class="form-label">E-Mail</label>
             <input type="text" id="email" name="email" class="person" placeholder="bsp. name@domain.de" value="<?= $person->getEmail()?>">
-            <label for="telefonnummer" class="person">Telefon</label>
+            <label for="telefonnummer" class="form-label">Telefon</label>
             <input type="tel" id="telefonnummer" name="telefonnummer" class="person" placeholder="0615112589564" value="<?= $person->getTelefonnummer()?>">
           </fieldset>
 

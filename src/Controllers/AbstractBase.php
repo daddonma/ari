@@ -38,6 +38,7 @@ abstract class AbstractBase
 
     public function run($action)
     {
+        
         $this->addContext('action', $action);
 
         $methodName = $action . 'Action';
@@ -46,17 +47,21 @@ abstract class AbstractBase
 
         if (method_exists($this, $methodName)) {
             $this->$methodName();
+            $this->render();
         } else {
             $this->render404();
         }
 
-        $this->render();
     }
 
     public function render404()
     {
         header('HTTP/1.0 404 Not Found');
-        die('Error 404');
+
+        $this->setTemplate('notFound', 'Error');
+
+        $this->render();
+   
     }
 
     protected function getControllerShortName()
@@ -289,6 +294,7 @@ abstract class AbstractBase
 
     protected function render()
     {
+
         extract($this->context);
 
         //Flash Messages
