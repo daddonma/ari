@@ -18,9 +18,17 @@ try {
 
     //Beispiel Regionen anlegen
     $regionenList = array(  
-                            ['name' => 'Südtirol'],
-                            ['name' => 'Kapverden'],
-                            ['name' => 'Mongolei']
+                            ['name' => 'Europa'],
+                            ['name' => 'Amerika'],
+                            ['name' => 'Asien'],
+                            ['name' => 'Afrika'],
+                            ['name' => 'Südamerika'],
+                            ['name' => 'Mongolei'],
+                            ['name' => 'Allgäu'],
+                            ['name' => 'Baltikum'],
+                            ['name' => 'Iberische Halbinseln'],
+                            ['name' => 'Pyrenäen'],
+                            ['name' => 'Sizillien'],
                         );
 
     foreach($regionenList AS $key => $regionData) {
@@ -33,11 +41,10 @@ try {
 
      //Beispiel Kategorien anlegen
     $kategorienList = array(  
-                            ['name' => 'Wanderurlaub'],
-                            ['name' => 'Zelten'],
-                            ['name' => 'Action'],
-                            ['name' => 'Paragliding'],
-                            ['name' => 'Seeschifffahrt']
+                            ['name' => 'Aktivurlaub'],
+                            ['name' => 'Erkundungen'],
+                            ['name' => 'Familienspass'],
+                            ['name' => 'Wandern']
                         );
 
      foreach($kategorienList AS $key => $kategorieData) {
@@ -50,7 +57,6 @@ try {
 
     //Beispiel Benutzer anlegen
     $benutzerList = array(
-                            ['benutzername' => 'testUser', 'passwortHash' => sha1("test")],
                             ['benutzername' => 'gastUser', 'passwortHash' => sha1("gast")],
                             ['benutzername' => 'admin', 'passwortHash' => sha1("admin123")]
                         );
