@@ -6,7 +6,7 @@ $connectionOptions = [
     'host' => 'localhost',
     'user' => 'root',
     'password' => '',
-    'dbname' => 'ari',
+    'dbname' => 'projekt',
 ];
 
 // Application/Doctrine configuration

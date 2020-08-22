@@ -7,14 +7,7 @@ use Entities\Kategorie;
 use Entities\Benutzer;
 use Entities\Anrede;
 
-$schemaTool = new \Doctrine\ORM\Tools\SchemaTool($em);
-
-$factory = $em->getMetadataFactory();
-$metadata = $factory->getAllMetadata();
-
 try {
-
-    $schemaTool->updateSchema($metadata);
 
     //Beispiel Regionen anlegen
     $regionenList = array(  
@@ -35,7 +28,7 @@ try {
         $regionObj = new Region($regionData);
 
         $exists = !empty($em->getRepository('Entities\Region')->findByName($regionObj->getName()));
-        
+       
         if(!$exists) $em->persist($regionObj);
     }
 
@@ -88,17 +81,10 @@ try {
     $em->flush();
 
 } catch (PDOException $e) {
-    echo 'ACHTUNG: Bei der Aktualisierung des Schemas gab es ein Problem: ';
-    echo $e->getMessage() . "<br />";
-    if (preg_match("/Unknown database '(.*)'/", $e->getMessage(), $matches)) {
-        die(
-            sprintf(
-                'Erstellen Sie die Datenbank %s mit der Kollation utf8_general_ci!',
-                $matches[1]
-            )
-        );
-    }
+    echo 'ACHTUNG: Bei der Aktualisierung des Schemas gab es ein Problem: ' . $e->getMessag();
+
 }
 
+echo "Die Einträge wurden erfolgreich angelegt.";
+
 ?>
-Das Schema-Tool wurde durchlaufen.
