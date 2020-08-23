@@ -318,6 +318,11 @@ abstract class AbstractBase
         else
             $controllerName = 'index';
 
+        if(isset($_GET['action'])) 
+            $action = $_GET['action'];
+        else
+            $action = "index";
+
         $searchSuggestions = $this->getSearchSuggestions();
 
         require_once $this->basePath . '/templates/layout.tpl.php';

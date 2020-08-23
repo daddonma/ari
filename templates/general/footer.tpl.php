@@ -1,15 +1,19 @@
 <nav>
     <ul>
         <li>
-            <a href="?controller=kontakt">Kontakt</a>
+            <a href="<?= BASE_URL?>?controller=index&action=kontakt">Kontakt</a>
         </li>
         
         <li>
-            <a href="?controller=datenschutz">Datenschutz</a>
+            <a href="<?= BASE_URL?>?controller=index&action=datenschutz">Datenschutz</a>
         </li>
         
         <li>
-            <a href="?controller=impressum">Impressum</a>
+            <a href="<?= BASE_URL?>?controller=index&action=impressum">Impressum</a>
+        </li>
+
+        <li>
+            <a href="<?= BASE_URL?>/admin">Mitarbeiterbereich</a>
         </li>
     </ul>
 </nav>
