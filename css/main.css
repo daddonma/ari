@@ -1,4 +1,7 @@
-/* Wird sowohl für Frontend, als auch für Backend verwendet */
+/*************************************************************************/
+/* stylesheet.css                                                        */
+/* wird auf wohl im Kunden- als auch im Mitarbeiterbereich eingebunden   */
+/*************************************************************************/
 
 :root {
      --button_color: rgba(46, 49, 49, 0.7);
@@ -44,4 +47,34 @@ select {
 label.form-label {
   display: block;
   margin-bottom: 0.25rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.blocksatz {
+   text-align: justify; 
+}
+
+p {
+    margin-top: .75rem;
+}
+
+li.active {
+    background-color: orange!important
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+} 
+
+.clearfix::after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1; /* Für den IE6 und IE7 */
 }
