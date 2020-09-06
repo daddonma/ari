@@ -75,9 +75,9 @@ class ReiseController extends AbstractBase {
 	}
 
 	public function buchenAction() {
-		$this->addJs("js\\tabs.js");
-		$this->addCss("css\\tabs.css");
-
+		$this->addCss('css\frontend\tabs.css');
+		$this->addJs('js\frontend\tabs.js');
+	
 		$em = $this->getEntityManager();
 
 		if(!isset($_GET['id'])) $this->render404();

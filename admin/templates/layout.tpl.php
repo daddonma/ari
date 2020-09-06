@@ -38,6 +38,10 @@
 
 <footer id="footer">
 
+<script>
+    const action = "<?= $action ?>";
+</script>
+
 <?php foreach($jsFiles['noPreload'] AS $jsFile): ?>
 	<script src="<?= $jsFile ?>" defer="defer"></script> 
 <?php endforeach; ?>

@@ -14,7 +14,10 @@
 	  	
 	}
 
-	initQuillEditor('beschreibung');
+	if(action === 'insert' || action === 'update') {
+		initQuillEditor('beschreibung');
+	}
+	
 
 
 }

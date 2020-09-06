@@ -7,12 +7,7 @@
 
 @font-face {
     font-family:"Coaster Quake";
-    src: url(../fonts/coaster_quake-webfont.ttf);
-}
-
-@font-face{
-    font-family:"Mango Drink";
-    src: url(../fonts/mango_drink.ttf);
+    src: url(../../fonts/coaster_quake-webfont.ttf);
 }
 
 :root {
@@ -26,7 +21,7 @@
 
     --header_height: 20rem;
 
-    --title_heading_font_size: 6rem; /* 10 rem */
+    --title_heading_font_size: 6rem;
 
     --teaser_title_font_size: 6rem;
     --nav_bg_color_2: #8bbef1;
@@ -71,7 +66,7 @@ body {
     height: var(--header_height);
     position: relative; /* wegen position:absolute von nav und search */
 
-    background: url(../images/header_mountain.jpg) no-repeat left center;
+    background: url(../../images/header_mountain.jpg) no-repeat left center;
     background-size:cover;
 }
 

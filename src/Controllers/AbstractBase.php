@@ -24,16 +24,6 @@ abstract class AbstractBase
         $this->jsFiles['preload'] = array();
         $this->jsFiles['noPreload'] = array();
 
-        $controllerName=lcfirst($this->getControllerShortName());
-
-        //Standard CSS laden
-        $this->addCss("css\\stylesheet.css");
-        $this->addCss("css\\{$controllerName}.css");
-
-        //Standard JS laden
-        $this->addJs("js\\domHelper.js", true);
-        $this->addJs("js\\script.js");
-        $this->addJs("js\\{$controllerName}.js");
     }
 
     public function run($action)
