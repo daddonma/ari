@@ -58,12 +58,13 @@ label.form-label {
 }
 
 p {
-    margin-top: .75rem;
+    margin: .75rem 0 .75rem 0;
 }
 
 li.active {
     background-color: orange!important
 }
+
 
 .clearfix::before,
 .clearfix::after {
@@ -77,4 +78,9 @@ li.active {
 
 .clearfix {
   *zoom: 1; /* Für den IE6 und IE7 */
+}
+
+#notFound {
+	text-align: center; 
+	margin-top: 5rem;
 }

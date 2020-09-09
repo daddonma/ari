@@ -93,3 +93,30 @@
 #teaserbox .prev:hover, #teaserbox .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
+
+#vorstellungAnsprechpartner figure {
+   width: 50%;
+} 
+
+@media (max-width: 992px) {
+  #vorstellungAnsprechpartner figure {
+    width: 100%;
+  }
+}
+
+#vorstellungAnsprechpartner figure:nth-child(even)  {
+  float: left; 
+}
+
+#vorstellungAnsprechpartner figure:nth-child(odd)  {
+  float: right; 
+}
+
+
+#vorstellungAnsprechpartner figure img {
+  border: 1px solid #ddd; 
+  border-radius: 4px;  
+  padding: 5px; 
+  width: 500px; 
+  margin: auto;
+}

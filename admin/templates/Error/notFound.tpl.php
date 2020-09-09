@@ -4,5 +4,3 @@
 
 	Falls Sie einem Link gefolgt sind, nehmen Sie bitte mit uns Kontakt auf.
 </section>
-
-
