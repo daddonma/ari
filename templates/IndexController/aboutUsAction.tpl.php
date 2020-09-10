@@ -22,12 +22,12 @@
 
 	<figure>
 		<img src="<?= IMG_DIR.'\heinz_lustig.jpg' ?>" alt="Heinz Ludwig, Geschäftsführer"/> 
-		<figcaption><strong>Heinz Ludwig</strong>, Geschäftsführer</figcaption>
+		<figcaption><strong>Heinz Lustig</strong>, Geschäftsführer</figcaption>
 	</figure>
 		
 	<figure>
 		<img src="<?= IMG_DIR.'\katja_lustig.jpg' ?>" alt="Katja Ludwig, stellv. Geschäftsführerin"/> 
-		<figcaption><strong>Katja Luwdig</strong>, stellv. Geschäftsführerin</figcaption>
+		<figcaption><strong>Katja Lustig</strong>, stellv. Geschäftsführerin</figcaption>
 	</figure>
 
 </section>

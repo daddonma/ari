@@ -103,6 +103,7 @@ body {
 
 #content {
     padding: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -314,7 +315,6 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    
     background-color: var(--nav_bg_color_2);
 }
 
