@@ -50,7 +50,7 @@
           <fieldset>
             <legend><?= $reise->getTitel()?></legend>
             <label for="personenanzahl" class="form-label">Für wieviele Personen möchten Sie die Reise buchen?</label><br>
-            <input type="number" id="personenanzahl" min=1 name="personenanzahl" placeholder="Anzahl"><br>
+            <input type="number" id="personenanzahl" min=1 name="personenanzahl" value="<?= $buchung->getPersonenanzahl()?>" placeholder="Anzahl"><br>
 
           </fieldset>
 
@@ -63,10 +63,10 @@
             </select>
 
             <label for="titel" class="form-label">Titel</label>
-            <input type="text" id="titel" name="titel" class="person" placeholder="Titel" value=<?= $person->getTitel()?>>
+            <input type="text" id="titel" name="titel" class="person" placeholder="Titel" value="<?= $person->getTitel()?>">
 
             <label for="vorname" class="form-label">Vorname</label>
-            <input type="text" id="vorname" name="vorname" class="person" placeholder="Ihr Vorname" value=<?= $person->getVorname()?>>
+            <input type="text" id="vorname" name="vorname" class="person" placeholder="Ihr Vorname" value="<?= $person->getVorname()?>">
             
             <label for="nachname" class="form-label">Nachname</label>
             <input type="text" id="nachname" name="nachname" class="person" placeholder="Ihr Nachname" value="<?= $person->getNachname()?>">

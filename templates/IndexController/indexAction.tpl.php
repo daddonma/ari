@@ -19,36 +19,46 @@
 
 </noscript>
 
-<div class="clearfix">
-	<div id="welcome" class="blocksatz">
-		<h2>Herzlich Willkommen</h2> 
+<section id="welcome" class="blocksatz">
+	<h2>Herzlich Willkommen</h2> 
 
-		<p>
-			Wir freuen uns, Sie bei <strong>ARI</strong> begrüßen zu dürfen.<br>
-			<strong>ARI</strong> steht für <b>A</b>benteuer<b>R</b>eisen <b>I</b>nternational
-		</p>
+	<p>
+		Wir freuen uns, Sie bei <strong>ARI</strong> begrüßen zu dürfen.<br>
+		<strong>ARI</strong> steht für <b>A</b>benteuer<b>R</b>eisen <b>I</b>nternational
+	</p>
 
-		<p>
-			Wir sind Ihr spezialist für Internationale Abenteuerreisen
-		</p>
+	<p>
+		Wir sind Ihr spezialist für Internationale Abenteuerreisen
+	</p>
 
-		<p>
-			Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-		</p>
-	</div>
-
-	<div id="teaserbox">
-		
-		<div id="teaser-container">
-			<?php foreach($reisen AS $reise): ?><div  class="teaser <?= 'ID' . $reise->getId()?>" style="background: url('<?= $reise->getVorschaubildPfad()?>') no-repeat left center;
-	    background-size: cover; border: 2px solid black">	
-				<h1><?= $reise->getTitel()?></h1>
-				<a href="?controller=reise&action=detail&id=<?= $reise->getId()?>"> mehr Infos </a> 
-			</div><?php endforeach; ?>
-		</div>
+	<p>
+		Auf unserer <a href="?controller=reise">Reiseübersicht</a> können Sie unsere Angebotenen Reisen ansehen und diese nach Kategorie filtern. 
+	</p>
 	
-		<a class="slideshow prev">&#10094;</a>
-    	<a class="slideshow next">&#10095;</a> 
+	<p>
+		Sie möchten uns erst besser kennen lernen? Dann stöbern Sie doch <a href="?controller=index&action=aboutUs">hier</a>.
+	</p>
 
+	<p>
+		<h2>Dia-Abende</h2>
+		Einmal im Monat finden unsere Dia-Abende statt, in denen unsere Kunden Ihre Reiseerlebnisse mit vielen weiteren Reiseinteressierten teilen können.
+		Sie möchten auch daran teilnehmen? Dann sprechen Sie uns gerne darauf an.
+	</p>
+
+</section>
+
+<section id="teaserbox">
+	
+	<div id="teaser-container">
+		<?php foreach($reisen AS $reise): ?><div  class="teaser <?= 'ID' . $reise->getId()?>" style="background: url('<?= $reise->getVorschaubildPfad()?>') no-repeat left center;
+    background-size: cover; border: 2px solid black">	
+			<h1><?= $reise->getTitel()?></h1>
+			<a href="?controller=reise&action=detail&id=<?= $reise->getId()?>"> mehr Infos </a> 
+		</div><?php endforeach; ?>
 	</div>
-</div>
+
+	<a class="slideshow prev">&#10094;</a>
+	<a class="slideshow next">&#10095;</a> 
+
+</setion>
+

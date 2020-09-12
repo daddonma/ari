@@ -2,6 +2,7 @@
 
 namespace Validators;
 
+use helpers\DateHelper;
 use Webmasters\Doctrine\ORM\EntityValidator;
 
 class PersonValidator extends EntityValidator  {
@@ -49,8 +50,7 @@ class PersonValidator extends EntityValidator  {
 	public function validateHausnummer($hausnummer) {
 		if(empty($hausnummer)) 
 			$this->addError("Die Hausnummer darf nicht leer sein");
-		else if(strlen($hausnummer) > 4)
-			$this->addError("Die Hausnummer darf maximal 4 Zeichen enthalten");
+		
 	}
 
 	public function validatePlz($plz) {
@@ -76,8 +76,6 @@ class PersonValidator extends EntityValidator  {
 			$this->addError("Die Telefonnummer muss mindestens 10 Zeichen enthalten");
 		else if(strlen($telefonnummer) > 20)
 			$this->addError("Die Telefonnummer darf maximal 20 Zeichen enthalten");
-
-		//todo auf gültige Telefonnummer prüfen
 	} 
 
 	public function validateEmail($email) {
@@ -88,4 +86,21 @@ class PersonValidator extends EntityValidator  {
 			$this->addError("Bitte geben Sie eine gültige E-Mail Adresse ein.");
 		}
 	} 
+
+	public function validateGeburtsdatum($geburtsdatum) {
+
+		if(!is_a($geburtsdatum, 'Webmasters\Doctrine\ORM\Util\DateTime')) {
+			$this->addError("Ungültiges Geburtsdatum");
+		} else {
+
+
+			//Alter berechnen
+			$alter = DateHelper::berechneAlter($geburtsdatum->format('Y-m-d'));
+
+			if($alter < 18) {
+				$this->addError("Sie müssen mindestens 18 Jahre alt sein (Ihr Alter: {$alter})");
+			}
+		}
+		
+	}
 }

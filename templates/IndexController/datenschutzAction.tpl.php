@@ -1,10 +1,9 @@
 <p><strong><big>Datenschutzerklärung</big></strong></p>
-
 <main class="blocksatz">
 	<p><strong>Allgemeiner Hinweis und Pflichtinformationen</strong></p>
 	<p><strong>Benennung der verantwortlichen Stelle</strong></p>
 	<p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-	<p><span id="s3-t-firma">ARI Abenteuerreisen International GmbH</span><br><span id="s3-t-ansprechpartner">Max Mustermann</span><br><span id="s3-t-strasse">Musterstraße 15</span><br><span id="s3-t-plz">64261</span> <span id="s3-t-ort">Darmstadt</span></p><p></p>
+	<p><span id="s3-t-firma">ARI - Abenteuerreisen International</span><br><span id="s3-t-ansprechpartner">Heinz Ludwig</span><br><span id="s3-t-strasse">Musterstraße 98</span><br><span id="s3-t-plz">28195</span> <span id="s3-t-ort">Bremen</span></p><p></p>
 	<p>Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.B. Namen, Kontaktdaten o. Ä.).</p>
 
 	<p><strong>Widerruf Ihrer Einwilligung zur Datenverarbeitung</strong></p>

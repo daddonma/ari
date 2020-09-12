@@ -1,6 +1,7 @@
-<h2>Über Uns</h2>
 
 <section class="blocksatz">
+	<h2>Über Uns</h2>
+
 	<p> 
 		<strong>ARI</strong> steht für <b>A</b>benteuer<b>R</b>eisen <b>I</b>nternational und wurde 1987 in <strong>Bremen </strong> gegründet.
 	</p>
@@ -10,11 +11,9 @@
 	</p>
 </section>
 
-
-<h2>Ihre Ansprechpartner</h2>
-
 <section id="vorstellungAnsprechpartner" class="blocksatz clearfix">
-
+	<h2>Ihre Ansprechpartner</h2>
+	
 	<p>
 		Wir, das sind das reiselustige Ehepaar Heinz und Katja Lustig.
 	</p>
